@@ -1,10 +1,6 @@
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 
-import { Button } from "@/app/shared/components/ui/button";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-} from "@/app/shared/assets/icons/social-icons";
+import { Button, ButtonTextClone } from "@/app/shared/components/ui/button";
 import {
   NextJsIcon,
   ReactIcon,
@@ -13,6 +9,7 @@ import {
   TypeScriptIcon,
 } from "@/app/shared/assets/icons/stack-icons";
 import { Badge } from "./ui/badge";
+import Link from "next/link";
 
 const STACKS = [
   { name: "React", Icon: ReactIcon },
@@ -33,7 +30,7 @@ const PROFILE = {
   links: {
     github: "https://github.com/adeke910",
     linkedin: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
-    cv: "/Adekemi_Bamiteko_CV.pdf",
+    cv: "/Adekemi_Bamiteko_Résumé.pdf",
   },
 };
 
@@ -41,27 +38,27 @@ export default function HeroSection() {
   return (
     <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
       <div className="flex flex-col gap-2 items-start">
-        <h1 className="font-anton font-medium tracking-[-0.08em] leading-[.75] text-6xl sm:text-[80px]">
+        <h1 className="font-stretch-ultra-condensed font-barlow-condensed font-medium tracking-[-0.08em] leading-[.75] text-5xl sm:text-[80px]">
           <span className=" text-primary">FRONTEND</span>
           <br />
           <span className=" text-primary-foreground pl-12">ENGINEER</span>
         </h1>
 
-        <p className="mt-2 text-base leading-relaxed font-mono text-primary-foreground">
+        <p className="mt-2 text-base leading-relaxed font-mono text-muted-foreground">
           {PROFILE.welcomeText}
         </p>
       </div>
 
       <div className="mt-4 flex flex-wrap items-center  gap-2 justify-start">
         {STACKS.map(({ name, Icon }) => (
-          <Badge variant="secondary" key={name}>
+          <Badge variant="outline" key={name}>
             <Icon />
             {name}
           </Badge>
         ))}
       </div>
 
-      <div className="mt-8 flex items-center gap-3">
+      {/* <div className="mt-8 flex items-center gap-3">
         <Button size="icon-lg">
           <a
             href={PROFILE.links.github}
@@ -89,18 +86,39 @@ export default function HeroSection() {
             <Download />
           </a>
         </Button>
-
-        <Button>Say Hello</Button>
-      </div>
-      <div className="mt-4 flex items-center">
+      </div> */}
+      <Button
+        variant="banner"
+        asChild
+        className="mt-9"
+        style={{
+          translate: "none",
+          rotate: "none",
+          scale: "none",
+          transform: "translate(0px, 0px)",
+          opacity: 1,
+        }}
+      >
+        <Link href="mailto:adekemibamiteko@gmail.com">
+          <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover/button:top-0 transition-all duration-500 scale-150">
+            <Mail className="size-4" />
+          </span>
+          <span className="z-1 flex items-center gap-2">
+            Work With Me <Mail className="size-4" />
+          </span>
+        </Link>
+      </Button>
+      <div className="flex items-center gap-2 mt-3">
         <Button variant="link" asChild className="p-0 gap-0">
           <a
             href={PROFILE.links.cv}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="view resume"
+            className="inline-flex items-center gap-1"
           >
-            See my resume <ArrowUpRight />
+            <ButtonTextClone text="Career Snapshot" />
+            <ArrowUpRight className="size-4 transition-transform duration-300 group-hover/button:-translate-y-0.5 group-hover/button:translate-x-0.5" />
           </a>
         </Button>
       </div>

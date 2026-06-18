@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Anton, Geist, Geist_Mono, Inter } from "next/font/google";
+import {
+  Barlow_Condensed,
+  Barlow_Semi_Condensed,
+  Geist,
+  Geist_Mono,
+  Inter,
+} from "next/font/google";
 import "./globals.css";
 import { cn } from "@/app/shared/lib/utils";
 import { ThemeProvider } from "./shared/components/theme-provider";
 import { ScrollIndicator } from "./shared/components/scroll-indicator";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const anton = Anton({
+
+const barlowSemiCondensed = Barlow_Semi_Condensed({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-anton",
+  variable: "--font-barlow",
+});
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-barlow-condensed",
 });
 
 const geistSans = Geist({
@@ -42,10 +54,14 @@ export default function RootLayout({
         geistMono.variable,
         "font-sans",
         inter.variable,
-        anton.variable,
+        barlowSemiCondensed.variable,
+        barlowCondensed.variable,
       )}
     >
-      <body className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0">
+      <body
+        className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0"
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

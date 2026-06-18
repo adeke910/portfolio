@@ -5,12 +5,14 @@ import { Slot } from "radix-ui";
 import { cn } from "@/app/shared/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex justify-center items-center relative overflow-hidden transition-colors font-anton outline-none",
+  "group/button inline-flex justify-center items-center relative overflow-hidden transition-colors font-anton outline-none rounded-md",
   {
     variants: {
       variant: {
         default:
           "gap-2 text-lg uppercase tracking-widest  bg-primary text-primary-foreground hover:bg-accent slide-up-and-fade",
+        banner:
+          "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 slide-up-and-fade banner-button",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30",
         secondary:
@@ -19,7 +21,7 @@ const buttonVariants = cva(
           "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary-foreground dark:text-primary underline-offset-4 underline hover:text-primary-foreground/70 dark:hover:text-primary/70 hover:scale-110 transition-transform ",
+        link: "text-primary-foreground dark:text-primary  decoration-current hover:text-primary-foreground/70 dark:hover:text-primary/70 transition-colors",
       },
       size: {
         default:
@@ -63,4 +65,21 @@ function Button({
   );
 }
 
-export { Button, buttonVariants };
+function ButtonTextClone({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  return (
+    <span className={cn("button-text-clone", className)} aria-label={text}>
+      <span className="button-text-clone__line">{text}</span>
+      <span className="button-text-clone__line button-text-clone__line--clone">
+        {text}
+      </span>
+    </span>
+  );
+}
+
+export { Button, buttonVariants, ButtonTextClone };
