@@ -9,7 +9,7 @@ import {
 import "./globals.css";
 import { cn } from "@/app/shared/lib/utils";
 import { ThemeProvider } from "./shared/components/theme-provider";
-import { AppScrollbar } from "./shared/components/app-scroll-bar";
+import { ScrollBar } from "./shared/components/scroll-bar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -68,7 +68,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <AppScrollbar />
+          <ScrollBar />
           {children}
         </ThemeProvider>
       </body>

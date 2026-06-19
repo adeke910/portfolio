@@ -21,7 +21,7 @@ function getScrollMetrics(target: ScrollTarget) {
   };
 }
 
-export function AppScrollbar() {
+export function ScrollBar() {
   const [progress, setProgress] = useState(0);
   const pathname = usePathname();
 
