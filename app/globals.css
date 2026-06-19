@@ -56,12 +56,12 @@
   --card-foreground: oklch(0.145 0.008 326);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.008 326);
-  --primary: #1e293b;
+  --primary: #fafafa;
   --primary-foreground: rgb(0, 0, 0);
   --secondary: #d8e2dc33;
   --secondary-foreground: oklch(0.212 0.019 322.12);
   --muted: oklch(0.96 0.003 325.6);
-  --muted-foreground: #d5d5d5;
+  --muted-foreground: rgb(213, 213, 213);
   --accent: #9d8189;
   --accent-foreground: oklch(0.212 0.019 322.12);
   --destructive: oklch(0.577 0.245 27.325);
@@ -83,7 +83,6 @@
   --sidebar-border: oklch(0.922 0.005 325.62);
   --sidebar-ring: oklch(0.711 0.019 323.02);
 }
-
 .dark {
   --background: #000000;
   --foreground: oklch(0.145 0.008 326);
@@ -92,7 +91,7 @@
   --popover: oklch(0.212 0.019 322.12);
   --popover-foreground: oklch(0.985 0 0);
   --primary: rgb(229, 107, 111);
-  --primary-foreground: rgb(231, 236, 239);
+  --primary-foreground: #e7ecef;
   --secondary: rgb(0, 0, 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.263 0.024 320.12);
@@ -178,6 +177,7 @@
 
 .button-text-clone__line--clone {
   transform: translateY(115%);
+  color: var(--primary-foreground);
 }
 
 .group\/button:hover .button-text-clone__line:first-child,
@@ -217,52 +217,35 @@ html {
 .scroll-arrow {
   position: fixed;
   left: 50%;
-  bottom: 1.5rem;
-  width: 376px;
-  max-width: 72vw;
-  height: auto;
-  transform: translateX(-50%) translateY(8px);
-  opacity: 0;
+  bottom: 3rem;
+  transform: translateX(-50%);
   pointer-events: none;
-  z-index: 60;
-  transition:
-    opacity 0.3s ease,
-    transform 0.35s ease;
+  /* opacity: 0; */
+  will-change: transform, opacity;
 }
 
-.scroll-arrow--visible {
+/* .scroll-arrow--visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
-}
+} */
 
 .svg-arrow {
-  fill: rgb(255 255 255 / 0.96);
+  fill: transparent;
+  stroke: rgb(181, 101, 118, 0.1);
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  overflow: hidden;
+  transform-origin: center bottom;
+  will-change: transform, opacity, clip-path;
 }
 
 .svg-arrow-1 {
-  animation: arrow-breathe-left 1.4s ease-in-out infinite alternate;
+  animation: 1.4s ease-in-out infinite alternate;
 }
 
 .svg-arrow-2 {
-  animation: arrow-breathe-right 1.4s ease-in-out infinite alternate;
-}
-
-@keyframes arrow-breathe-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-4px);
-  }
-}
-
-@keyframes arrow-breathe-right {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(4px);
-  }
+  animation: 1.4s ease-in-out infinite alternate;
 }
 
 .scroll-fade-mask {

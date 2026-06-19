@@ -112,12 +112,12 @@ export default function Header() {
             <AvatarFallback>{PROFILE.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-primary-foreground ">
+        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-primary/90 ">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="hover:text-foreground dark:hover:text-primary transition"
+              className="hover:text-primary dark:hover:text-primary transition"
               onMouseEnter={(event) => animateNavItem(event.currentTarget)}
               onFocus={(event) => animateNavItem(event.currentTarget)}
             >

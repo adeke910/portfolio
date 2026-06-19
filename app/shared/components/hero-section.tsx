@@ -26,7 +26,7 @@ const PROFILE = {
   imageAlt: "Adekemi Bamiteko",
   initials: "BA",
   welcomeText:
-    "My professional career spans 3 years now, each of which has further deepened my fondness and respect for the craft.",
+    "My professional career spans 3 years now, each of which has further deepened my fondness and respect for the craft. ",
   links: {
     github: "https://github.com/adeke910",
     linkedin: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
@@ -41,7 +41,7 @@ export default function HeroSection() {
         <h1 className="font-stretch-ultra-condensed font-barlow-condensed font-medium tracking-[-0.08em] leading-[.75] text-5xl sm:text-[80px]">
           <span className=" text-primary">FRONTEND</span>
           <br />
-          <span className=" text-primary-foreground pl-12">ENGINEER</span>
+          <span className=" text-primary-foreground pl-12">ENGINEERs</span>
         </h1>
 
         <p className="mt-2 text-base leading-relaxed font-mono text-muted-foreground">
@@ -109,7 +109,11 @@ export default function HeroSection() {
         </Link>
       </Button>
       <div className="flex items-center gap-2 mt-3">
-        <Button variant="link" asChild className="p-0 gap-0">
+        <Button
+          variant="link"
+          asChild
+          className="p-0 gap-0 text-primary hover:text-primary/80"
+        >
           <a
             href={PROFILE.links.cv}
             target="_blank"
