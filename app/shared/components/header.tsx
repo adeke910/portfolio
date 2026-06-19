@@ -80,7 +80,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="relative h-16 w-full flex items-center justify-between px-8 md:px-12 lg:px-16 rounded-lg bg-secondary/70">
+    <div className="relative h-16 w-full flex items-center justify-between px-8 md:px-12 lg:px-16 rounded-lg bg-accent/70">
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
