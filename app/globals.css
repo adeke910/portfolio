@@ -177,7 +177,7 @@
 
 .button-text-clone__line--clone {
   transform: translateY(115%);
-  color: var(--primary-foreground);
+  color: var(--primary);
 }
 
 .group\/button:hover .button-text-clone__line:first-child,
@@ -191,7 +191,7 @@
   transform: translateY(0);
 }
 
-.scroll-indicator {
+.scroll-bar {
   position: fixed;
   top: 50svh;
   right: 2%;
@@ -207,7 +207,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.scroll-indicator__progress {
+.scroll-bar__progress {
   width: 100%;
   height: 100%;
   background-color: var(--primary);
@@ -215,37 +215,23 @@ html {
 }
 
 .scroll-arrow {
-  position: fixed;
+  position: absolute;
   left: 50%;
   bottom: 3rem;
   transform: translateX(-50%);
   pointer-events: none;
-  /* opacity: 0; */
   will-change: transform, opacity;
 }
 
-/* .scroll-arrow--visible {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-} */
-
 .svg-arrow {
-  fill: transparent;
-  stroke: rgb(181, 101, 118, 0.1);
+  fill: var(--accent);
+  stroke: color-mix(in srgb, var(--accent) 30%, transparent);
   stroke-width: 1.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
   overflow: hidden;
   transform-origin: center bottom;
   will-change: transform, opacity, clip-path;
-}
-
-.svg-arrow-1 {
-  animation: 1.4s ease-in-out infinite alternate;
-}
-
-.svg-arrow-2 {
-  animation: 1.4s ease-in-out infinite alternate;
 }
 
 .scroll-fade-mask {

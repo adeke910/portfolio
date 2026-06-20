@@ -10,6 +10,7 @@ import "./globals.css";
 import { cn } from "@/app/shared/lib/utils";
 import { ThemeProvider } from "./shared/components/theme-provider";
 import { ScrollBar } from "./shared/components/scroll-bar";
+import ScrollTop from "./shared/components/scroll-top";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -59,7 +60,7 @@ export default function RootLayout({
       )}
     >
       <body
-        className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0"
+        className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0 relative"
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -69,6 +70,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ScrollBar />
+          {/* <ScrollTop /> */}
           {children}
         </ThemeProvider>
       </body>

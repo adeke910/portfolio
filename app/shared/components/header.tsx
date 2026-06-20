@@ -1,83 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import BubbleMenu from "./BubbleMenu";
+import BubbleMenu from "./bubble-menu";
+import SplitText from "./split-text";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-
-const PROFILE = {
-  name: "Adekemi",
-  title: "Frontend Engineers",
-  imageSrc: "/profile.jpeg",
-  imageAlt: "Adekemi Bamiteko",
-  initials: "BA",
-};
-const NAV_ITEMS = [
-  { label: "Catalogue", href: "#catalogue" },
-  { label: "Skills", href: "#skills" },
-  { label: "Connect with me", href: "#connect-with-me" },
-] as const;
-
-gsap.registerPlugin(SplitText);
+import { NAV_ITEMS, PROFILE } from "../lib/data";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const activeAnimationsRef = useRef<
-    Map<HTMLAnchorElement, { split: SplitText; tween: gsap.core.Tween }>
-  >(new Map());
-
-  const animateNavItem = (link: HTMLAnchorElement) => {
-    const existingAnimation = activeAnimationsRef.current.get(link);
-
-    if (existingAnimation) {
-      existingAnimation.tween.kill();
-      existingAnimation.split.revert();
-    }
-
-    const split = SplitText.create(link, {
-      type: "chars",
-      tag: "span",
-      charsClass: "nav-hover-char",
-      aria: "auto",
-    });
-
-    gsap.set(split.chars, {
-      display: "inline-block",
-      willChange: "transform,opacity",
-    });
-
-    const tween = gsap.fromTo(
-      split.chars,
-      { yPercent: 110, opacity: 0 },
-      {
-        yPercent: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.018,
-        ease: "power3.out",
-        onComplete: () => {
-          split.revert();
-          activeAnimationsRef.current.delete(link);
-        },
-      },
-    );
-
-    activeAnimationsRef.current.set(link, { split, tween });
-  };
-
-  useEffect(() => {
-    const activeAnimations = activeAnimationsRef.current;
-
-    return () => {
-      activeAnimations.forEach(({ split, tween }) => {
-        tween.kill();
-        split.revert();
-      });
-
-      activeAnimations.clear();
-    };
-  }, []);
+  const router = useRouter();
 
   return (
     <div className="relative h-16 w-full flex items-center justify-between px-8 md:px-12 lg:px-16 rounded-lg bg-accent/70">
@@ -114,15 +45,23 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center gap-6 text-sm font-medium text-primary/90 ">
           {NAV_ITEMS.map((item) => (
-            <a
+            <SplitText
               key={item.label}
+              text={item.label}
+              tag="a"
               href={item.href}
+              trigger="hover"
+              splitType="chars"
+              delay={18}
+              duration={0.4}
+              from={{ yPercent: 110, opacity: 0 }}
+              to={{ yPercent: 0, opacity: 1 }}
+              ease="power3.out"
               className="hover:text-primary dark:hover:text-primary transition"
-              onMouseEnter={(event) => animateNavItem(event.currentTarget)}
-              onFocus={(event) => animateNavItem(event.currentTarget)}
-            >
-              {item.label}
-            </a>
+              onClick={() => {
+                router.push(item.href);
+              }}
+            />
           ))}
         </div>
       </div>

@@ -48,39 +48,13 @@ export function ScrollBar() {
   }, [pathname]);
 
   return (
-    <div className="scroll-indicator">
+    <div className="scroll-bar">
       <div
-        className="scroll-indicator__progress"
+        className="scroll-bar__progress"
         style={{
           transform: `translateY(${-(100 - progress)}%)`,
         }}
       />
     </div>
   );
-}
-{
-  /* {showArrow && (
-  <svg
-    ref={svgRef}
-    width="376"
-    height="111"
-    viewBox="0 0 376 111"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    className={`scroll-arrow `}
-  >
-    <path
-      className="svg-arrow svg-arrow-1"
-      fill="currentColor"
-      d="M1 1V39.9286L188 110V70.6822L1 1Z"
-    />
-
-    <path
-      className="svg-arrow svg-arrow-2"
-      fill="currentColor"
-      d="M375 1V39.9286L188 110V70.6822L375 1Z"
-    />
-  </svg>
-)} */
 }
