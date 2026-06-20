@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
+import { getScrollContainer } from "../shared/lib/scroll";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -12,9 +13,12 @@ const Skills = () => {
 
   useGSAP(
     () => {
+      const scroller = getScrollContainer();
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
+          scroller: scroller ?? undefined,
           start: "top 60%",
           end: "bottom 50%",
           toggleActions: "restart none none reverse",
@@ -22,7 +26,7 @@ const Skills = () => {
         },
       });
 
-      tl.from(".slide-up-and-fade", {
+      tl.from(".slide-up-fade", {
         y: 50,
         opacity: 0,
         stagger: 0.3,
@@ -33,9 +37,12 @@ const Skills = () => {
 
   useGSAP(
     () => {
+      const scroller = getScrollContainer();
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
+          scroller: scroller ?? undefined,
           start: "bottom 50%",
           end: "bottom 20%",
           scrub: 1,
@@ -53,7 +60,7 @@ const Skills = () => {
   return (
     <section id="skills">
       <div ref={containerRef}>
-        <h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-and-fade">
+        <h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-fade">
           Skills
         </h2>
       </div>

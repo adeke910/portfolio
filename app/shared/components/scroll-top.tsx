@@ -9,10 +9,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useGSAP } from "@gsap/react";
+import { getScrollContainer } from "../lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
-
-const SCROLL_CONTAINER_SELECTOR = '[data-scroll-container="true"]';
 
 export default function ScrollTop() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -20,9 +19,7 @@ export default function ScrollTop() {
 
   useGSAP(() => {
     const btn = btnRef.current;
-    const scrollContainer = document.querySelector<HTMLElement>(
-      SCROLL_CONTAINER_SELECTOR,
-    );
+    const scrollContainer = getScrollContainer();
     const target: Window | HTMLElement = scrollContainer ?? window;
 
     if (!btn) return;
@@ -58,9 +55,7 @@ export default function ScrollTop() {
   }, [pathname]);
 
   const scrollToTop = () => {
-    const scrollContainer = document.querySelector<HTMLElement>(
-      SCROLL_CONTAINER_SELECTOR,
-    );
+    const scrollContainer = getScrollContainer();
     const target: Window | HTMLElement = scrollContainer ?? window;
 
     gsap.to(target, {

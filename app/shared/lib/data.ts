@@ -1,10 +1,9 @@
-import {
-  NextJsIcon,
-  ReactIcon,
-  TailwindCssIcon,
-  TanStackQueryIcon,
-  TypeScriptIcon,
-} from "@/app/shared/assets/icons/stack-icons";
+import ReactIcon from "@/app/shared/assets/icons/react.svg";
+import NextJsIcon from "@/app/shared/assets/icons/nextdotjs.svg";
+import TypeScriptIcon from "@/app/shared/assets/icons/typescript.svg";
+import TanStackQueryIcon from "@/app/shared/assets/icons/tanstack.svg";
+import TailwindCssIcon from "@/app/shared/assets/icons/tailwindcss.svg";
+import { Users, FolderKanban, Code2, CloudCog, LucideIcon } from "lucide-react";
 
 interface IProject {
   title: string;
@@ -19,24 +18,57 @@ interface IProject {
   liveUrl?: string;
   sourceCode?: string;
 }
+type Metric = {
+  value?: string;
+  text: string;
+  Icon: LucideIcon;
+};
+type IProfile = {
+  name: string;
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  initials: string;
+  email: string;
+  welcomeText: string;
+  profileText1: string;
+  profileText2: string;
+  profileText3: string;
+  emailSubject: string;
+  emailBody: string;
+  links: {
+    github: string;
+    linkedin: string;
+    cv: string;
+  };
+  metrics: Metric[];
+};
+interface IStack {
+  name: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+interface INavItem {
+  label: string;
+  href: string;
+}
 
-export const STACKS = [
+export const STACKS: IStack[] = [
   { name: "React", Icon: ReactIcon },
   { name: "Next.js", Icon: NextJsIcon },
   { name: "TypeScript", Icon: TypeScriptIcon },
   { name: "TanStack", Icon: TanStackQueryIcon },
   { name: "Tailwind", Icon: TailwindCssIcon },
-] as const;
+];
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS: INavItem[] = [
   // { label: "Home", href: "/" },
   { label: "  Profile", href: "/#profile" },
   { label: "Catalogue", href: "/#catalogue" },
   { label: "Skills", href: "/#skills" },
   { label: "Contact Me", href: "/#contact" },
-] as const;
+];
 
-export const PROFILE = {
+export const PROFILE: IProfile = {
   name: "Adekemi",
   title: "Frontend Engineers",
   imageSrc: "/profile.jpeg",
@@ -45,6 +77,11 @@ export const PROFILE = {
   email: "adekemibamiteko@gmail.com",
   welcomeText:
     "My professional career spans 3 years now, each of which has further deepened my fondness and respect for the craft. ",
+  profileText1: "I am Adekemi.",
+  profileText2:
+    "A Frontend Engineer with a passion for building thoughtful digital experiences.",
+  profileText3:
+    "I specialize in React, Next.js, TypeScript, and modern frontend architecture. My work centers on creating products that feel simple for users. I enjoy turning complex ideas into intuitive interfaces and collaborating with teams to deliver products that are both technically sound and visually refined.",
   emailSubject: "Let's collaborate on a project",
   emailBody: "Hello Adekemi, I am reaching out to you because...",
   links: {
@@ -52,6 +89,27 @@ export const PROFILE = {
     linkedin: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
     cv: "/Adekemi_Bamiteko_Résumé.pdf",
   },
+  metrics: [
+    {
+      value: "3+",
+      text: "Years Experience",
+      Icon: CloudCog,
+    },
+    {
+      value: "8+",
+      text: " Projects Delivered",
+      Icon: FolderKanban,
+    },
+    {
+      value: "10+",
+      text: " Technologies Mastered",
+      Icon: Code2,
+    },
+    {
+      text: "Cross-functional Collaboration",
+      Icon: Users,
+    },
+  ],
 };
 export const MY_STACK = {
   frontend: [

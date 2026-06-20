@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "gap-2 text-lg uppercase tracking-widest  bg-primary text-primary-foreground hover:bg-accent ",
         banner:
-          "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 slide-up-and-fade banner-button",
+          "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 slide-up-fade banner-button",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30",
         secondary:

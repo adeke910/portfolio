@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-
-const SCROLL_CONTAINER_SELECTOR = '[data-scroll-container="true"]';
+import { getScrollContainer } from "../lib/scroll";
 
 type ScrollTarget = Window | HTMLElement;
 
@@ -26,9 +25,7 @@ export function ScrollBar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const scrollContainer = document.querySelector<HTMLElement>(
-      SCROLL_CONTAINER_SELECTOR,
-    );
+    const scrollContainer = getScrollContainer();
     const target: ScrollTarget = scrollContainer ?? window;
 
     const handleScroll = () => {

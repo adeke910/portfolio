@@ -11,6 +11,7 @@ import { cn } from "@/app/shared/lib/utils";
 import { ThemeProvider } from "./shared/components/theme-provider";
 import { ScrollBar } from "./shared/components/scroll-bar";
 import ScrollTop from "./shared/components/scroll-top";
+import localFont from "next/font/local";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -34,6 +35,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+const grandSlang = localFont({
+  src: "../public/fonts/GrandSlang-Roman.woff2",
+  variable: "--font-grand-slang",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Adekemi's Portfolio",
@@ -56,8 +62,9 @@ export default function RootLayout({
         geistMono.variable,
         "font-sans",
         inter.variable,
-
+        grandSlang.variable,
         barlowCondensed.variable,
+        grandSlang.variable,
       )}
     >
       <body

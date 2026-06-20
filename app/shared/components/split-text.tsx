@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import { getScrollContainer } from "../lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
@@ -150,6 +151,7 @@ const SplitText: React.FC<SplitTextProps> = ({
 
       cleanupAnimation();
       const el = ref.current;
+      const scroller = getScrollContainer();
       const startPct = (1 - threshold) * 100;
       const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
       const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
@@ -183,6 +185,7 @@ const SplitText: React.FC<SplitTextProps> = ({
               stagger: delay / 1000,
               scrollTrigger: {
                 trigger: el,
+                scroller: scroller ?? undefined,
                 start,
                 once: true,
                 fastScrollEnd: true,
