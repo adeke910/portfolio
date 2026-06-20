@@ -27,7 +27,7 @@ export default function Header() {
                 padding: 0,
               }}
               menuAriaLabel="Toggle mobile navigation"
-              menuBg="var(--secondary)"
+              menuBg="var(--primary)"
               menuContentColor="var(--primary-foreground)"
               items={NAV_ITEMS.map((item) => ({
                 ...item,
@@ -43,7 +43,7 @@ export default function Header() {
             <AvatarFallback>{PROFILE.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-primary/90 ">
+        <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-primary/90 ">
           {NAV_ITEMS.map((item) => (
             <SplitText
               key={item.label}

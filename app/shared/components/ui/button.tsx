@@ -5,12 +5,12 @@ import { Slot } from "radix-ui";
 import { cn } from "@/app/shared/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex justify-center items-center relative overflow-hidden transition-colors font-anton outline-none rounded-md",
+  "group/button inline-flex justify-center items-center relative overflow-hidden transition-colors  outline-none rounded-md",
   {
     variants: {
       variant: {
         default:
-          "gap-2 text-lg uppercase tracking-widest  bg-primary text-primary-foreground hover:bg-accent slide-up-and-fade",
+          "gap-2 text-lg uppercase tracking-widest  bg-primary text-primary-foreground hover:bg-accent ",
         banner:
           "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 slide-up-and-fade banner-button",
         outline:
@@ -42,20 +42,27 @@ const buttonVariants = cva(
   },
 );
 
-function Button({
-  className,
-  variant = "default",
-  size = "default",
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button"> &
+    VariantProps<typeof buttonVariants> & {
+      asChild?: boolean;
+    }
+>(function Button(
+  {
+    className,
+    variant = "default",
+    size = "default",
+    asChild = false,
+    ...props
+  },
+  ref,
+) {
   const Comp = asChild ? Slot.Root : "button";
 
   return (
     <Comp
+      ref={ref}
       data-slot="button"
       data-variant={variant}
       data-size={size}
@@ -63,7 +70,9 @@ function Button({
       {...props}
     />
   );
-}
+});
+
+Button.displayName = "Button";
 
 function ButtonTextClone({
   text,

@@ -46,8 +46,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
           className="no-scrollbar h-full overflow-y-auto  mask-[linear-gradient(to_bottom,transparent_0,transparent_5.75rem,rgba(0,0,0,0.35)_7.75rem,black_10.5rem,black_calc(100%-5rem),transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,transparent_5.75rem,rgba(0,0,0,0.35)_7.75rem,black_10.5rem,black_calc(100%-5rem),transparent_100%)]  "
           data-scroll-container="true"
         >
-          <div className="page-transition w-screen h-screen fixed top-0 left-0 bg-background-light z-5">
-            <div className="page-transition--inner w-screen h-screen fixed top-0 left-0 bg-primary z-5 translate-y-full"></div>
+          <div className="page-transition w-screen h-screen fixed top-0 left-0 bg-transparent z-5">
+            <div className="page-transition--inner w-screen h-screen fixed top-0 left-0 bg-transparent z-5 translate-y-full"></div>
           </div>
           {children}
         </div>

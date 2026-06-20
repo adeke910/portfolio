@@ -66,10 +66,10 @@ export default function IntroSection() {
           <ScrollArrow />
 
           <div className="flex flex-col gap-2 items-start">
-            <h1 className="font-stretch-ultra-condensed font-barlow-condensed font-medium tracking-[-0.08em] leading-[.75] text-5xl sm:text-[80px]">
+            <h1 className="font-barlow-condensed font-medium tracking-tight leading-[.75] md:text-[120px] text-[80px]">
               <span className=" text-primary">FRONTEND</span>
               <br />
-              <span className=" text-primary-foreground pl-12">ENGINEERs</span>
+              <span className=" text-primary-foreground pl-12">ENGINEER</span>
             </h1>
 
             <p className="mt-2 text-base leading-relaxed font-mono text-muted-foreground slide-up-and-fade">

@@ -12,16 +12,16 @@ import { ThemeProvider } from "./shared/components/theme-provider";
 import { ScrollBar } from "./shared/components/scroll-bar";
 import ScrollTop from "./shared/components/scroll-top";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const barlowSemiCondensed = Barlow_Semi_Condensed({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
   variable: "--font-barlow",
 });
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600"],
   variable: "--font-barlow-condensed",
 });
 
@@ -51,11 +51,12 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
+        barlowSemiCondensed.variable,
         geistSans.variable,
         geistMono.variable,
         "font-sans",
         inter.variable,
-        barlowSemiCondensed.variable,
+
         barlowCondensed.variable,
       )}
     >
@@ -65,7 +66,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
