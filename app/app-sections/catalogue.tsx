@@ -61,23 +61,13 @@ const Catalogue = () => {
 
   return (
     <section id="catalogue" className="pb-100">
-      <div ref={container}>
+      <div
+        ref={container}
+        className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)]  justify-center "
+      >
         <h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-and-fade font-grand-slang ">
           Catalogue
         </h2>
-        <div className="flex items-center justify-between gap-5">
-          <div className="flex flex-col gap-5">
-            <p className="text-4xl leading-relaxed font-mono font-semibold text-primary slide-up-and-fade">
-              {PROFILE.profileText1}
-            </p>
-            <p className="text-2xl leading-relaxed font-mono font-medium text-muted-foreground slide-up-and-fade">
-              {PROFILE.profileText2}
-            </p>
-            <p className="text-xl leading-relaxed font-mono text-muted-foreground slide-up-and-fade">
-              {PROFILE.profileText3}
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -60,8 +60,11 @@ export default function Profile() {
     { scope: container },
   );
   return (
-    <section id="profile" className="pb-50 md:pb-60">
-      <div ref={container} className="flex flex-col gap-5 slide-up-and-fade">
+    <section id="profile">
+      <div
+        ref={container}
+        className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)]  justify-center"
+      >
         <h2 className="text-4xl md:text-6xl font-thin slide-up-and-fade font-grand-slang ">
           Profile
         </h2>
