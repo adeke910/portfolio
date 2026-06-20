@@ -70,7 +70,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ScrollBar />
-          {/* <ScrollTop /> */}
+          <ScrollTop />
           {children}
         </ThemeProvider>
       </body>
