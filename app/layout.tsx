@@ -12,6 +12,7 @@ import { ThemeProvider } from "./shared/components/theme-provider";
 import { ScrollBar } from "./shared/components/scroll-bar";
 import ScrollTop from "./shared/components/scroll-top";
 import localFont from "next/font/local";
+import { TooltipProvider } from "./shared/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -68,7 +69,7 @@ export default function RootLayout({
       )}
     >
       <body
-        className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0 relative"
+        className="h-dvh w-dvw flex flex-col overflow-hidden min-h-0 min-w-0 relative"
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -79,7 +80,7 @@ export default function RootLayout({
         >
           <ScrollBar />
           <ScrollTop />
-          {children}
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React from "react";
-import { PROFILE } from "../shared/lib/data";
 import { getScrollContainer } from "../shared/lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -65,7 +64,7 @@ const Catalogue = () => {
         ref={container}
         className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)]  justify-center "
       >
-        <h2 className="text-4xl md:text-6xl font-thin mb-20 slide-up-and-fade font-grand-slang ">
+        <h2 className="text-4xl md:text-6xl font-thin slide-up-and-fade font-grand-slang ">
           Catalogue
         </h2>
       </div>

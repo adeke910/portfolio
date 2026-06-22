@@ -70,7 +70,7 @@ export default function ScrollTop() {
       ref={btnRef}
       size="icon-lg"
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50"
+      className="fixed bottom-20 right-8 z-50"
       id="scroll-top-btn"
     >
       <ArrowUp className="size-4" />

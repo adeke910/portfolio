@@ -9,6 +9,7 @@ import { Badge } from "../shared/components/ui/badge";
 import Link from "next/link";
 import { PROFILE, STACKS } from "@/app/shared/lib/data";
 import ScrollArrow from "@/app/shared/components/scroll-arrow";
+import { getScrollContainer } from "@/app/shared/lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -17,10 +18,13 @@ export default function IntroSection() {
 
   useGSAP(
     () => {
+      const scroller = getScrollContainer();
+
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "intro-in",
           trigger: container.current,
+          scroller: scroller ?? undefined,
           start: "top 70%",
           end: "bottom bottom",
           scrub: 0.5,
@@ -38,10 +42,13 @@ export default function IntroSection() {
 
   useGSAP(
     () => {
+      const scroller = getScrollContainer();
+
       const tl = gsap.timeline({
         scrollTrigger: {
           id: "intro-out",
           trigger: container.current,
+          scroller: scroller ?? undefined,
           start: "bottom 50%",
           end: "bottom 10%",
           scrub: 0.5,
@@ -62,9 +69,8 @@ export default function IntroSection() {
         className="flex items-center min-h-[calc(100svh-80px)]"
         ref={container}
       >
-        <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px] ">
-          <ScrollArrow />
-
+        <ScrollArrow />
+        <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px] slide-up-and-fade">
           <div className="flex flex-col gap-2 items-start">
             <h1 className="font-barlow-condensed font-medium tracking-tight leading-[.75] md:text-[120px] text-[80px]">
               <span className=" text-primary">FRONTEND</span>

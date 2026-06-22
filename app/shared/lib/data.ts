@@ -3,7 +3,31 @@ import NextJsIcon from "@/app/shared/assets/icons/nextdotjs.svg";
 import TypeScriptIcon from "@/app/shared/assets/icons/typescript.svg";
 import TanStackQueryIcon from "@/app/shared/assets/icons/tanstack.svg";
 import TailwindCssIcon from "@/app/shared/assets/icons/tailwindcss.svg";
-import { Users, FolderKanban, Code2, CloudCog, LucideIcon } from "lucide-react";
+import JavaScriptIcon from "@/app/shared/assets/icons/javascript.svg";
+import Html5Icon from "@/app/shared/assets/icons/html5.svg";
+import NodeJsIcon from "@/app/shared/assets/icons/nodedotjs.svg";
+import PythonIcon from "@/app/shared/assets/icons/python.svg";
+import ReduxIcon from "@/app/shared/assets/icons/redux.svg";
+import GsapIcon from "@/app/shared/assets/icons/gsap.svg";
+import ShadcnUiIcon from "@/app/shared/assets/icons/shadcnui.svg";
+import ReactRouterIcon from "@/app/shared/assets/icons/reactrouter.svg";
+import ReactHookFormIcon from "@/app/shared/assets/icons/reacthookform.svg";
+import ZodIcon from "@/app/shared/assets/icons/zod.svg";
+import MongoDbIcon from "@/app/shared/assets/icons/mongodb.svg";
+import FlaskIcon from "@/app/shared/assets/icons/flask.svg";
+import GitIcon from "@/app/shared/assets/icons/git.svg";
+import GithubPagesIcon from "@/app/shared/assets/icons/githubpages.svg";
+import GithubIcon from "@/app/shared/assets/icons/github.svg";
+import CursorIcon from "@/app/shared/assets/icons/cursor.svg";
+import {
+  Users,
+  FolderKanban,
+  Code2,
+  CloudCog,
+  LucideIcon,
+  FileIcon,
+} from "lucide-react";
+import LinkedInIcon from "@/app/shared/assets/icons/linkedin.svg";
 
 interface IProject {
   title: string;
@@ -37,16 +61,26 @@ type IProfile = {
   emailSubject: string;
   emailBody: string;
   links: {
-    github: string;
-    linkedin: string;
-    cv: string;
-  };
+    text: string;
+    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    url: string;
+  }[];
   metrics: Metric[];
 };
 interface IStack {
   name: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
+type StackItem = {
+  name: string;
+  color: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+type StackModel = {
+  languages: StackItem[];
+  technicalSkills: StackItem[];
+  tools: StackItem[];
+};
 interface INavItem {
   label: string;
   href: string;
@@ -65,6 +99,7 @@ export const NAV_ITEMS: INavItem[] = [
   { label: "  Profile", href: "/#profile" },
   { label: "Catalogue", href: "/#catalogue" },
   { label: "Skills", href: "/#skills" },
+  // { label: "Experience", href: "/#experience" },
   { label: "Contact Me", href: "/#contact" },
 ];
 
@@ -84,11 +119,15 @@ export const PROFILE: IProfile = {
     "I specialize in React, Next.js, TypeScript, and modern frontend architecture. My work centers on creating products that feel simple for users. I enjoy turning complex ideas into intuitive interfaces and collaborating with teams to deliver products that are both technically sound and visually refined.",
   emailSubject: "Let's collaborate on a project",
   emailBody: "Hello Adekemi, I am reaching out to you because...",
-  links: {
-    github: "https://github.com/adeke910",
-    linkedin: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
-    cv: "/Adekemi_Bamiteko_Résumé.pdf",
-  },
+  links: [
+    { text: "GitHub", Icon: GithubIcon, url: "https://github.com/adeke910" },
+    {
+      text: "LinkedIn",
+      Icon: LinkedInIcon,
+      url: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
+    },
+    { text: "CV", Icon: FileIcon, url: "/Adekemi_Bamiteko_Résumé.pdf" },
+  ],
   metrics: [
     {
       value: "3+",
@@ -111,93 +150,124 @@ export const PROFILE: IProfile = {
     },
   ],
 };
-export const MY_STACK = {
-  frontend: [
+export const MY_STACK: StackModel = {
+  languages: [
     {
       name: "JavaScript",
-      icon: "/logo/js.png",
+      color: "#F7DF1E",
+      Icon: JavaScriptIcon,
     },
     {
       name: "TypeScript",
-      icon: "/logo/ts.png",
+      color: "#3178C6",
+      Icon: TypeScriptIcon,
     },
     {
+      name: "HTML5",
+      color: "#E34F26",
+      Icon: Html5Icon,
+    },
+    {
+      name: "Node.js",
+      color: "#5FA04E",
+      Icon: NodeJsIcon,
+    },
+    {
+      name: "Python",
+      color: "#3776AB",
+      Icon: PythonIcon,
+    },
+  ],
+  technicalSkills: [
+    {
       name: "React",
-      icon: "/logo/react.png",
+      color: "#61DAFB",
+      Icon: ReactIcon,
     },
     {
       name: "Next.js",
-      icon: "/logo/next.png",
+      color: "#000000",
+      Icon: NextJsIcon,
     },
     {
       name: "Redux",
-      icon: "/logo/redux.png",
+      color: "#764ABC",
+      Icon: ReduxIcon,
     },
     {
       name: "Tailwind CSS",
-      icon: "/logo/tailwind.png",
+      color: "#06B6D4",
+      Icon: TailwindCssIcon,
     },
     {
       name: "GSAP",
-      icon: "/logo/gsap.png",
+      color: "#0AE448",
+      Icon: GsapIcon,
+    },
+
+    {
+      name: "Shadcn",
+      color: "#000000",
+      Icon: ShadcnUiIcon,
     },
     {
-      name: "Framer Motion",
-      icon: "/logo/framer-motion.png",
+      name: "TanStack",
+      color: "#FF4154",
+      Icon: TanStackQueryIcon,
     },
     {
-      name: "Sass",
-      icon: "/logo/sass.png",
+      name: "React Router",
+      color: "#CA4245",
+      Icon: ReactRouterIcon,
     },
     {
-      name: "Bootstrap",
-      icon: "/logo/bootstrap.svg",
-    },
-  ],
-  backend: [
-    {
-      name: "Node.js",
-      icon: "/logo/node.png",
+      name: "React Hook Form",
+      color: "#EC5990",
+      Icon: ReactHookFormIcon,
     },
     {
-      name: "NestJS",
-      icon: "/logo/nest.svg",
-    },
-    {
-      name: "Express.js",
-      icon: "/logo/express.png",
-    },
-  ],
-  database: [
-    {
-      name: "MySQL",
-      icon: "/logo/mysql.svg",
-    },
-    {
-      name: "PostgreSQL",
-      icon: "/logo/postgreSQL.png",
+      name: "Zod",
+      color: "#408AFF",
+      Icon: ZodIcon,
     },
     {
       name: "MongoDB",
-      icon: "/logo/mongodb.svg",
+      color: "#47A248",
+      Icon: MongoDbIcon,
     },
     {
-      name: "Prisma",
-      icon: "/logo/prisma.png",
+      name: "Flask",
+      color: "#3BABC3",
+      Icon: FlaskIcon,
     },
   ],
+
   tools: [
     {
       name: "Git",
-      icon: "/logo/git.png",
+      color: "#F03C2E",
+      Icon: GitIcon,
     },
     {
-      name: "Docker",
-      icon: "/logo/docker.svg",
+      name: "GitHub Pages",
+      color: "#222222",
+      Icon: GithubPagesIcon,
     },
+    {
+      name: "GitHub",
+      color: "#181717",
+      Icon: GithubIcon,
+    },
+
     {
       name: "AWS",
-      icon: "/logo/aws.png",
+      color: "#FF9900",
+      Icon: CloudCog,
+    },
+    {
+      name: "Cursor AI",
+      color: "#000000",
+      Icon: CursorIcon,
     },
   ],
 };
