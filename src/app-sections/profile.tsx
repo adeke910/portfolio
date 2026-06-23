@@ -63,7 +63,7 @@ export default function Profile() {
         ref={container}
         className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)]  justify-center"
       >
-        <h2 className="text-4xl md:text-6xl font-thin slide-up-and-fade font-grand-slang ">
+        <h2 className="text-3xl md:text-4xl font-thin slide-up-and-fade font-grand-slang ">
           Profile
         </h2>
         <div className="flex md:flex-row flex-col gap-5 justify-between">

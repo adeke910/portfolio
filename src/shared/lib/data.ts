@@ -19,6 +19,7 @@ import GitIcon from "@/shared/assets/icons/git.svg";
 import GithubPagesIcon from "@/shared/assets/icons/githubpages.svg";
 import GithubIcon from "@/shared/assets/icons/github.svg";
 import CursorIcon from "@/shared/assets/icons/cursor.svg";
+import ChakraIcon from "@/shared/assets/icons/chakraui.svg";
 import {
   Users,
   FolderKanban,
@@ -31,14 +32,9 @@ import LinkedInIcon from "@/shared/assets/icons/linkedin.svg";
 
 interface IProject {
   title: string;
-  year: number;
   description: string;
-  role: string;
   techStack: string[];
-  thumbnail: string;
-  longThumbnail: string;
-  images: string[];
-  slug: string;
+  image: string;
   liveUrl?: string;
   sourceCode?: string;
 }
@@ -211,6 +207,11 @@ export const MY_STACK: StackModel = {
       Icon: ShadcnUiIcon,
     },
     {
+      name: "Chakra UI",
+      color: "#1BB2A9",
+      Icon: ChakraIcon,
+    },
+    {
       name: "TanStack",
       color: "#FF4154",
       Icon: TanStackQueryIcon,
@@ -273,171 +274,46 @@ export const MY_STACK: StackModel = {
 };
 export const PROJECTS: IProject[] = [
   {
-    title: "Electro EV",
-    slug: "electro-ev",
-    liveUrl: "https://electroev.co.uk/",
-    year: 2025,
+    title: "NFT Marketplace",
+    liveUrl: "https://adeke910.github.io/Sample-NFT-Project/home",
+    sourceCode: "https://github.com/adeke910/Sample-NFT-Project",
     description: `
-    A complete agency portfolio platform built for Electro EV to showcase their services, blog content, and product offerings. <br/> <br/>
-    
-    Key Features:<br/>
-    <ul>
-      <li>🛠️ Service Display System: Interactive service showcase with synchronized sliders</li>
-      <li>✍️ Blog Management: SEO-friendly blog with categorization and search</li>
-      <li>🛒 Product Catalog: Organized product display with filtering capabilities</li>
-      <li>📱 Fully Responsive: Optimized for all device sizes</li>
-      <li>⚡ Fast Performance: Optimized Next.js frontend with ISR (Incremental Static Regeneration)</li>
-    </ul><br/>
-    
-    Technical Highlights:
-    <ul>
-      <li>Implemented complex slider synchronization logic using Swiper.js</li>
-      <li>Customized Payload CMS admin panel for intuitive content management</li>
-      <li>Developed reusable UI components with shadcn for design consistency</li>
-      <li>Configured efficient data fetching strategies in Next.js</li>
-    </ul>
-    `,
-    role: `
-    Full-Stack Developer <br/>
-    Owned the entire development lifecycle:
-    <ul>
-      <li>✅ Backend: Configured Payload CMS with custom collections for services, blogs, and products</li>
-      <li>🎨 Frontend: Built all UI components using Tailwind CSS and shadcn</li>
-      <li>🔄 State Management: Implemented client-side data fetching and caching</li>
-      <li>🖥️ CMS Customization: Created admin interfaces for content editors</li>
-      <li>🚀 Deployment: Set up CI/CD pipeline for Vercel hosting</li>
-      <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
-    </ul>
-    `,
-    techStack: [
-      "Next.js",
-      "Payload CMS",
-      "Tailwind CSS",
-      "shadcn",
-      "Swiper.js",
-      "React Hook Form",
-      "Vercel",
-    ],
-    thumbnail: "/projects/thumbnail/mti-electronics.webp",
-    longThumbnail: "/projects/long/mti-electronics.webp",
-    images: [
-      "/projects/images/mti-electronics-1.webp",
-      "/projects/images/mti-electronics-2.webp",
-    ],
-  },
-  {
-    title: "Epikcart",
-    slug: "epikcart",
+    A modern NFT marketplace interface designed for discovering, browsing, and showcasing digital collectibles. The platform features curated collections, creator profiles, trending assets, and responsive layouts focused on delivering a seamless user experience`,
+
     techStack: [
       "React",
-      "Redux",
-      "React i18n",
-      "Tailwind CSS",
-      "Framer Motion",
-      "debouncing",
+      "Tailwind",
+      "Shadcn",
+      "React Hook Form",
+      "Github Pages",
+    ],
+
+    image: "./public/nft_marketplace.png",
+  },
+  {
+    title: "xTractify",
+    techStack: [
+      "AWS",
+      "Chakra UI",
+      "MongoDB",
+      "Tailwind ",
+      "GSAP",
       "Api Integration",
     ],
-    thumbnail: "/projects/thumbnail/epikcart.jpg",
-    longThumbnail: "/projects/long/epikcart.jpg",
-    images: [
-      "/projects/images/epikcart-1.png",
-      "/projects/images/epikcart-2.png",
-      "/projects/images/epikcart-3.png",
-      "/projects/images/epikcart-4.png",
-      "/projects/images/epikcart-5.png",
-    ],
-    liveUrl: "https://demo.epikcart.siphertech.com/",
-    year: 2023,
-    description: `Epikcart is a feature-rich, scalable e-commerce platform tailored for large businesses. It features dynamic product filtering, multi-language support with RTL, advanced inventory management, order tracking, and refund systems, offering a comprehensive solution for multi-vendor operations.`,
-    role: `As the frontend developer in a team of five, I: <br/>
-      - Built the frontend from scratch using React, Redux, RTK Query, and Tailwind CSS.<br/>
-      - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
-      - Integrated multi-language support with React i18n, including RTL handling.<br/>
-      - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.`,
-  },
-  {
-    title: "Resume Roaster",
-    slug: "resume-roaster",
-    techStack: ["GPT-4", "Next.js", "Postgressql", "Prisma", "Tailwind CSS"],
-    thumbnail: "/projects/thumbnail/resume-roaster.jpg",
-    longThumbnail: "/projects/long/resume-roaster.jpg",
-    images: [
-      "/projects/images/resume-roaster-1.png",
-      "/projects/images/resume-roaster-2.png",
-      "/projects/images/resume-roaster-3.png",
-    ],
-    liveUrl: "https://resume-roaster.vercel.app/",
-    year: 2023,
-    description:
-      "Resume Roaster is a web application designed to provide tailored resume feedback and professional writing services. Built with Next.js, PostgreSQL, Prisma, and Tailwind CSS, it integrates GPT-4 for AI-powered recommendations. The platform also includes peer-to-peer reviews with a points-based system, fostering a collaborative and engaging experience. Targeting freshers, experienced professionals, and programmers, it helps optimize resumes for job-specific success.",
-    role: `As the sole developer and business owner, I:<br/>
-      - Designed and developed the platform end-to-end using Next.js, PostgreSQL, Prisma, and Tailwind CSS.<br/>
-      - Integrated GPT-4 for AI-driven feedback and insights.<br/>
-      - Implemented complex SQL queries, including one to identify the top two resumes based on user points.`,
-  },
-  {
-    title: "Real Estate",
-    slug: "property-pro",
-    techStack: [
-      "React.js",
-      "Redux",
-      "Tailwind CSS",
-      "React i18n",
-      "Framer Motion",
-    ],
-    thumbnail: "/projects/thumbnail/property-pro.jpg",
-    longThumbnail: "/projects/long/property-pro.jpg",
-    images: [
-      "/projects/images/property-pro-1.png",
-      "/projects/images/property-pro-2.png",
-      "/projects/images/property-pro-3.png",
-    ],
-    liveUrl: "https://demo.propertypro.siphertech.com/",
-    year: 2023,
-    description:
-      "PropertyPro is a real estate management platform offering users a seamless experience to explore, manage, and view property listings. The application emphasizes accessibility and responsive design, ensuring a smooth interface across devices.",
-    role: `As the frontend developer, I:<br/>
-      - Built the frontend using React, Redux, RTK Query, Framer Motion, and Tailwind CSS.<br/>
-      - Integrated dynamic state management for efficient handling of property data.<br/>
-      - Implemented multi-language support with React i18n to cater to diverse audiences.<br/>
-      - Enhanced user interaction with animations and transitions using Framer Motion.`,
-  },
-  {
-    title: "Consulting Finance",
-    slug: "crenotive",
-    techStack: ["HTML", "CSS & SCSS", "Javascript", "Bootstrap"],
-    thumbnail: "/projects/thumbnail/consulting-finance.jpg",
-    longThumbnail: "/projects/long/consulting-finance.jpg",
-    images: [
-      "/projects/images/consulting-finance-1.png",
-      "/projects/images/consulting-finance-2.png",
-      "/projects/images/consulting-finance-3.png",
-    ],
-    sourceCode: "https://github.com/Tajmirul/crenotive",
-    liveUrl: "https://crenotive.netlify.app/",
-    year: 2023,
-    description:
-      "I developed Crenotive, a portfolio website using Html, SASS, and jQuery to showcase services and expertise. The design focuses on responsive user experience and effective presentation of professional achievements.",
-    role: ``,
-  },
-  {
-    title: "devLinks",
-    slug: "devLinks",
-    techStack: ["Next.js", "Formik", "Drag & Drop", "Tailwind CSS"],
-    thumbnail: "/projects/thumbnail/devLinks.jpg",
-    longThumbnail: "/projects/long/devLinks.jpg",
-    images: [
-      "/projects/images/devLinks-1.png",
-      "/projects/images/devLinks-2.png",
-      "/projects/images/devLinks-3.png",
-    ],
-    sourceCode: "https://github.com/Tajmirul/devsLink",
-    liveUrl: "https://devlinks-demo.vercel.app/auth/signin",
-    year: 2023,
-    description: `One of the most challenging projects in Frontend Mentor.<br/><br/>
 
-          I developed a LinkSharing App as part of the Frontend Mentor challenge, utilizing React, Redux, and Tailwind CSS to create a responsive and feature-rich platform. The app allows users to share, save, and explore links, with a focus on intuitive design and smooth navigation. Advanced state management ensures efficient data handling for user interactions.`,
-    role: ``,
+    image: "./public/xtractify.png",
+    liveUrl: "https://d1k20s9xwxm93g.cloudfront.net/auth/signin",
+    sourceCode: "https://github.com/adeke910/pnpm-monorepo",
+    description:
+      "XTracker is a responsive expense tracking web app built with React, designed for simplicity and clarity. It enables users to manage expenses, categorize spending, and gain insights through real-time data visualizations. The app features secure JWT-based authentication, a Node.js-powered API, and is deployed on AWS for scalability and reliability.",
+  },
+  {
+    title: "Helper Apps",
+    techStack: ["Typescript", "Pnpm Workspaces"],
+    image: "./public/helper.png",
+    sourceCode: "https://github.com/Muhammad-Tahir-S/helper-apps",
+    description:
+      "This monorepo contains the frontend and backend services for a suite of collaborative applications, including a Task Manager and a Notes app. It's configured with pnpm workspaces, TypeScript, and a full suite of development tools to ensure code quality and consistency.",
   },
 ];
 
@@ -445,15 +321,75 @@ export const MY_EXPERIENCE: {
   title: string;
   company: string;
   duration: string;
+  location: string;
+  color: string;
+  model: "Hybrid" | "Onsite" | "Remote";
+  stack: StackItem[];
 }[] = [
   {
-    title: "Associate Software Engineer",
+    title: "Software Engineer - (Frontend)",
     company: "KPMG Nigeria",
     duration: "Sep 2023 - Present",
+    location: "Lagos,Nigeria",
+    model: "Hybrid",
+    color: "#00338d",
+    stack: [
+      {
+        name: "JavaScript",
+        color: "#F7DF1E",
+        Icon: JavaScriptIcon,
+      },
+      {
+        name: "TypeScript",
+        color: "#3178C6",
+        Icon: TypeScriptIcon,
+      },
+
+      {
+        name: "React Router",
+        color: "#CA4245",
+        Icon: ReactRouterIcon,
+      },
+      {
+        name: "React Hook Form",
+        color: "#EC5990",
+        Icon: ReactHookFormIcon,
+      },
+      {
+        name: "Zod",
+        color: "#408AFF",
+        Icon: ZodIcon,
+      },
+      {
+        name: "Redux",
+        color: "#764ABC",
+        Icon: ReduxIcon,
+      },
+    ],
   },
   {
     title: "Frontend Developer",
     company: "Bexxle Technologies",
     duration: "Jan 2022 - Jan 2023",
+    location: "Lagos,Nigeria",
+    model: "Remote",
+    color: "#6366F1",
+    stack: [
+      {
+        name: "Next.js",
+        color: "#000000",
+        Icon: NextJsIcon,
+      },
+      {
+        name: "Chakra UI",
+        color: "#1BB2A9",
+        Icon: ChakraIcon,
+      },
+      {
+        name: "Tailwind CSS",
+        color: "#06B6D4",
+        Icon: TailwindCssIcon,
+      },
+    ],
   },
 ];

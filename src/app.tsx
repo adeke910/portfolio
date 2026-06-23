@@ -8,6 +8,7 @@ import Skills from "./app-sections/skills";
 import Footer from "./app-sections/contact";
 import Catalogue from "./app-sections/catalogue";
 import Profile from "./app-sections/profile";
+import Experience from "./app-sections/experience";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -56,6 +57,7 @@ export default function App() {
             <Profile />
             <Catalogue />
             <Skills />
+            <Experience />
             <Footer />
           </div>
         </div>
