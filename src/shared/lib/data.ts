@@ -1,0 +1,459 @@
+import ReactIcon from "@/shared/assets/icons/react.svg";
+import NextJsIcon from "@/shared/assets/icons/nextdotjs.svg";
+import TypeScriptIcon from "@/shared/assets/icons/typescript.svg";
+import TanStackQueryIcon from "@/shared/assets/icons/tanstack.svg";
+import TailwindCssIcon from "@/shared/assets/icons/tailwindcss.svg";
+import JavaScriptIcon from "@/shared/assets/icons/javascript.svg";
+import Html5Icon from "@/shared/assets/icons/html5.svg";
+import NodeJsIcon from "@/shared/assets/icons/nodedotjs.svg";
+import PythonIcon from "@/shared/assets/icons/python.svg";
+import ReduxIcon from "@/shared/assets/icons/redux.svg";
+import GsapIcon from "@/shared/assets/icons/gsap.svg";
+import ShadcnUiIcon from "@/shared/assets/icons/shadcnui.svg";
+import ReactRouterIcon from "@/shared/assets/icons/reactrouter.svg";
+import ReactHookFormIcon from "@/shared/assets/icons/reacthookform.svg";
+import ZodIcon from "@/shared/assets/icons/zod.svg";
+import MongoDbIcon from "@/shared/assets/icons/mongodb.svg";
+import FlaskIcon from "@/shared/assets/icons/flask.svg";
+import GitIcon from "@/shared/assets/icons/git.svg";
+import GithubPagesIcon from "@/shared/assets/icons/githubpages.svg";
+import GithubIcon from "@/shared/assets/icons/github.svg";
+import CursorIcon from "@/shared/assets/icons/cursor.svg";
+import {
+  Users,
+  FolderKanban,
+  Code2,
+  CloudCog,
+  LucideIcon,
+  DownloadIcon,
+} from "lucide-react";
+import LinkedInIcon from "@/shared/assets/icons/linkedin.svg";
+
+interface IProject {
+  title: string;
+  year: number;
+  description: string;
+  role: string;
+  techStack: string[];
+  thumbnail: string;
+  longThumbnail: string;
+  images: string[];
+  slug: string;
+  liveUrl?: string;
+  sourceCode?: string;
+}
+type Metric = {
+  value?: string;
+  text: string;
+  Icon: LucideIcon;
+};
+type IProfile = {
+  name: string;
+  title: string;
+  imageSrc: string;
+  imageAlt: string;
+  initials: string;
+  email: string;
+  welcomeText: string;
+  profileText1: string;
+  profileText2: string;
+  profileText3: string;
+  emailSubject: string;
+  emailBody: string;
+  links: {
+    text: string;
+    Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    url: string;
+  }[];
+  metrics: Metric[];
+};
+interface IStack {
+  name: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+type StackItem = {
+  name: string;
+  color: string;
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+type StackModel = {
+  languages: StackItem[];
+  technicalSkills: StackItem[];
+  tools: StackItem[];
+};
+interface INavItem {
+  label: string;
+  href: string;
+}
+
+export const STACKS: IStack[] = [
+  { name: "React", Icon: ReactIcon },
+  { name: "Next.js", Icon: NextJsIcon },
+  { name: "TypeScript", Icon: TypeScriptIcon },
+  { name: "TanStack", Icon: TanStackQueryIcon },
+  { name: "Tailwind", Icon: TailwindCssIcon },
+];
+
+export const NAV_ITEMS: INavItem[] = [
+  // { label: "", href: "/" },
+  { label: "  Profile", href: "/#profile" },
+  { label: "Catalogue", href: "/#catalogue" },
+  { label: "Skills", href: "/#skills" },
+  // { label: "Experience", href: "/#experience" },
+  { label: "Contact Me", href: "/#contact" },
+];
+
+export const PROFILE: IProfile = {
+  name: "Adekemi",
+  title: "Frontend Engineers",
+  imageSrc: "/profile.jpeg",
+  imageAlt: "Adekemi Bamiteko",
+  initials: "BA",
+  email: "adekemibamiteko@gmail.com",
+  welcomeText:
+    "My professional career spans 3 years now, each of which has further deepened my fondness and respect for the craft. ",
+  profileText1: "I am Adekemi.",
+  profileText2:
+    "A Frontend Engineer with a passion for building thoughtful digital experiences.",
+  profileText3:
+    "I specialize in React, Next.js, TypeScript, and modern frontend architecture. My work centers on creating products that feel simple for users. I enjoy turning complex ideas into intuitive interfaces and collaborating with teams to deliver products that are both technically sound and visually refined.",
+  emailSubject: "Let's collaborate on a project",
+  emailBody: "Hello Adekemi, I am reaching out to you because...",
+  links: [
+    { text: "GitHub", Icon: GithubIcon, url: "https://github.com/adeke910" },
+    {
+      text: "LinkedIn",
+      Icon: LinkedInIcon,
+      url: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
+    },
+    { text: "CV", Icon: DownloadIcon, url: "/Adekemi_Bamiteko_Résumé.pdf" },
+  ],
+  metrics: [
+    {
+      value: "3+",
+      text: "Years Experience",
+      Icon: CloudCog,
+    },
+    {
+      value: "8+",
+      text: " Projects Delivered",
+      Icon: FolderKanban,
+    },
+    {
+      value: "10+",
+      text: " Technologies Mastered",
+      Icon: Code2,
+    },
+    {
+      text: "Cross-functional Collaboration",
+      Icon: Users,
+    },
+  ],
+};
+export const MY_STACK: StackModel = {
+  languages: [
+    {
+      name: "JavaScript",
+      color: "#F7DF1E",
+      Icon: JavaScriptIcon,
+    },
+    {
+      name: "TypeScript",
+      color: "#3178C6",
+      Icon: TypeScriptIcon,
+    },
+    {
+      name: "HTML5",
+      color: "#E34F26",
+      Icon: Html5Icon,
+    },
+    {
+      name: "Node.js",
+      color: "#5FA04E",
+      Icon: NodeJsIcon,
+    },
+    {
+      name: "Python",
+      color: "#3776AB",
+      Icon: PythonIcon,
+    },
+  ],
+  technicalSkills: [
+    {
+      name: "React",
+      color: "#61DAFB",
+      Icon: ReactIcon,
+    },
+    {
+      name: "Next.js",
+      color: "#000000",
+      Icon: NextJsIcon,
+    },
+    {
+      name: "Redux",
+      color: "#764ABC",
+      Icon: ReduxIcon,
+    },
+    {
+      name: "Tailwind CSS",
+      color: "#06B6D4",
+      Icon: TailwindCssIcon,
+    },
+    {
+      name: "GSAP",
+      color: "#0AE448",
+      Icon: GsapIcon,
+    },
+
+    {
+      name: "Shadcn",
+      color: "#000000",
+      Icon: ShadcnUiIcon,
+    },
+    {
+      name: "TanStack",
+      color: "#FF4154",
+      Icon: TanStackQueryIcon,
+    },
+    {
+      name: "React Router",
+      color: "#CA4245",
+      Icon: ReactRouterIcon,
+    },
+    {
+      name: "React Hook Form",
+      color: "#EC5990",
+      Icon: ReactHookFormIcon,
+    },
+    {
+      name: "Zod",
+      color: "#408AFF",
+      Icon: ZodIcon,
+    },
+    {
+      name: "MongoDB",
+      color: "#47A248",
+      Icon: MongoDbIcon,
+    },
+    {
+      name: "Flask",
+      color: "#3BABC3",
+      Icon: FlaskIcon,
+    },
+  ],
+
+  tools: [
+    {
+      name: "Git",
+      color: "#F03C2E",
+      Icon: GitIcon,
+    },
+    {
+      name: "GitHub Pages",
+      color: "#222222",
+      Icon: GithubPagesIcon,
+    },
+    {
+      name: "GitHub",
+      color: "#181717",
+      Icon: GithubIcon,
+    },
+
+    {
+      name: "AWS",
+      color: "#FF9900",
+      Icon: CloudCog,
+    },
+    {
+      name: "Cursor AI",
+      color: "#000000",
+      Icon: CursorIcon,
+    },
+  ],
+};
+export const PROJECTS: IProject[] = [
+  {
+    title: "Electro EV",
+    slug: "electro-ev",
+    liveUrl: "https://electroev.co.uk/",
+    year: 2025,
+    description: `
+    A complete agency portfolio platform built for Electro EV to showcase their services, blog content, and product offerings. <br/> <br/>
+    
+    Key Features:<br/>
+    <ul>
+      <li>🛠️ Service Display System: Interactive service showcase with synchronized sliders</li>
+      <li>✍️ Blog Management: SEO-friendly blog with categorization and search</li>
+      <li>🛒 Product Catalog: Organized product display with filtering capabilities</li>
+      <li>📱 Fully Responsive: Optimized for all device sizes</li>
+      <li>⚡ Fast Performance: Optimized Next.js frontend with ISR (Incremental Static Regeneration)</li>
+    </ul><br/>
+    
+    Technical Highlights:
+    <ul>
+      <li>Implemented complex slider synchronization logic using Swiper.js</li>
+      <li>Customized Payload CMS admin panel for intuitive content management</li>
+      <li>Developed reusable UI components with shadcn for design consistency</li>
+      <li>Configured efficient data fetching strategies in Next.js</li>
+    </ul>
+    `,
+    role: `
+    Full-Stack Developer <br/>
+    Owned the entire development lifecycle:
+    <ul>
+      <li>✅ Backend: Configured Payload CMS with custom collections for services, blogs, and products</li>
+      <li>🎨 Frontend: Built all UI components using Tailwind CSS and shadcn</li>
+      <li>🔄 State Management: Implemented client-side data fetching and caching</li>
+      <li>🖥️ CMS Customization: Created admin interfaces for content editors</li>
+      <li>🚀 Deployment: Set up CI/CD pipeline for Vercel hosting</li>
+      <li>🧩 Third-Party Integration: Added Swiper.js for interactive sliders</li>
+    </ul>
+    `,
+    techStack: [
+      "Next.js",
+      "Payload CMS",
+      "Tailwind CSS",
+      "shadcn",
+      "Swiper.js",
+      "React Hook Form",
+      "Vercel",
+    ],
+    thumbnail: "/projects/thumbnail/mti-electronics.webp",
+    longThumbnail: "/projects/long/mti-electronics.webp",
+    images: [
+      "/projects/images/mti-electronics-1.webp",
+      "/projects/images/mti-electronics-2.webp",
+    ],
+  },
+  {
+    title: "Epikcart",
+    slug: "epikcart",
+    techStack: [
+      "React",
+      "Redux",
+      "React i18n",
+      "Tailwind CSS",
+      "Framer Motion",
+      "debouncing",
+      "Api Integration",
+    ],
+    thumbnail: "/projects/thumbnail/epikcart.jpg",
+    longThumbnail: "/projects/long/epikcart.jpg",
+    images: [
+      "/projects/images/epikcart-1.png",
+      "/projects/images/epikcart-2.png",
+      "/projects/images/epikcart-3.png",
+      "/projects/images/epikcart-4.png",
+      "/projects/images/epikcart-5.png",
+    ],
+    liveUrl: "https://demo.epikcart.siphertech.com/",
+    year: 2023,
+    description: `Epikcart is a feature-rich, scalable e-commerce platform tailored for large businesses. It features dynamic product filtering, multi-language support with RTL, advanced inventory management, order tracking, and refund systems, offering a comprehensive solution for multi-vendor operations.`,
+    role: `As the frontend developer in a team of five, I: <br/>
+      - Built the frontend from scratch using React, Redux, RTK Query, and Tailwind CSS.<br/>
+      - Developed dynamic filtering logic for the product search page with admin-configurable parameters.<br/>
+      - Integrated multi-language support with React i18n, including RTL handling.<br/>
+      - Delivered a responsive, user-friendly interface in collaboration with the UI/UX designer.`,
+  },
+  {
+    title: "Resume Roaster",
+    slug: "resume-roaster",
+    techStack: ["GPT-4", "Next.js", "Postgressql", "Prisma", "Tailwind CSS"],
+    thumbnail: "/projects/thumbnail/resume-roaster.jpg",
+    longThumbnail: "/projects/long/resume-roaster.jpg",
+    images: [
+      "/projects/images/resume-roaster-1.png",
+      "/projects/images/resume-roaster-2.png",
+      "/projects/images/resume-roaster-3.png",
+    ],
+    liveUrl: "https://resume-roaster.vercel.app/",
+    year: 2023,
+    description:
+      "Resume Roaster is a web application designed to provide tailored resume feedback and professional writing services. Built with Next.js, PostgreSQL, Prisma, and Tailwind CSS, it integrates GPT-4 for AI-powered recommendations. The platform also includes peer-to-peer reviews with a points-based system, fostering a collaborative and engaging experience. Targeting freshers, experienced professionals, and programmers, it helps optimize resumes for job-specific success.",
+    role: `As the sole developer and business owner, I:<br/>
+      - Designed and developed the platform end-to-end using Next.js, PostgreSQL, Prisma, and Tailwind CSS.<br/>
+      - Integrated GPT-4 for AI-driven feedback and insights.<br/>
+      - Implemented complex SQL queries, including one to identify the top two resumes based on user points.`,
+  },
+  {
+    title: "Real Estate",
+    slug: "property-pro",
+    techStack: [
+      "React.js",
+      "Redux",
+      "Tailwind CSS",
+      "React i18n",
+      "Framer Motion",
+    ],
+    thumbnail: "/projects/thumbnail/property-pro.jpg",
+    longThumbnail: "/projects/long/property-pro.jpg",
+    images: [
+      "/projects/images/property-pro-1.png",
+      "/projects/images/property-pro-2.png",
+      "/projects/images/property-pro-3.png",
+    ],
+    liveUrl: "https://demo.propertypro.siphertech.com/",
+    year: 2023,
+    description:
+      "PropertyPro is a real estate management platform offering users a seamless experience to explore, manage, and view property listings. The application emphasizes accessibility and responsive design, ensuring a smooth interface across devices.",
+    role: `As the frontend developer, I:<br/>
+      - Built the frontend using React, Redux, RTK Query, Framer Motion, and Tailwind CSS.<br/>
+      - Integrated dynamic state management for efficient handling of property data.<br/>
+      - Implemented multi-language support with React i18n to cater to diverse audiences.<br/>
+      - Enhanced user interaction with animations and transitions using Framer Motion.`,
+  },
+  {
+    title: "Consulting Finance",
+    slug: "crenotive",
+    techStack: ["HTML", "CSS & SCSS", "Javascript", "Bootstrap"],
+    thumbnail: "/projects/thumbnail/consulting-finance.jpg",
+    longThumbnail: "/projects/long/consulting-finance.jpg",
+    images: [
+      "/projects/images/consulting-finance-1.png",
+      "/projects/images/consulting-finance-2.png",
+      "/projects/images/consulting-finance-3.png",
+    ],
+    sourceCode: "https://github.com/Tajmirul/crenotive",
+    liveUrl: "https://crenotive.netlify.app/",
+    year: 2023,
+    description:
+      "I developed Crenotive, a portfolio website using Html, SASS, and jQuery to showcase services and expertise. The design focuses on responsive user experience and effective presentation of professional achievements.",
+    role: ``,
+  },
+  {
+    title: "devLinks",
+    slug: "devLinks",
+    techStack: ["Next.js", "Formik", "Drag & Drop", "Tailwind CSS"],
+    thumbnail: "/projects/thumbnail/devLinks.jpg",
+    longThumbnail: "/projects/long/devLinks.jpg",
+    images: [
+      "/projects/images/devLinks-1.png",
+      "/projects/images/devLinks-2.png",
+      "/projects/images/devLinks-3.png",
+    ],
+    sourceCode: "https://github.com/Tajmirul/devsLink",
+    liveUrl: "https://devlinks-demo.vercel.app/auth/signin",
+    year: 2023,
+    description: `One of the most challenging projects in Frontend Mentor.<br/><br/>
+
+          I developed a LinkSharing App as part of the Frontend Mentor challenge, utilizing React, Redux, and Tailwind CSS to create a responsive and feature-rich platform. The app allows users to share, save, and explore links, with a focus on intuitive design and smooth navigation. Advanced state management ensures efficient data handling for user interactions.`,
+    role: ``,
+  },
+];
+
+export const MY_EXPERIENCE: {
+  title: string;
+  company: string;
+  duration: string;
+}[] = [
+  {
+    title: "Associate Software Engineer",
+    company: "KPMG Nigeria",
+    duration: "Sep 2023 - Present",
+  },
+  {
+    title: "Frontend Developer",
+    company: "Bexxle Technologies",
+    duration: "Jan 2022 - Jan 2023",
+  },
+];
