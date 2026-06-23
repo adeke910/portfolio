@@ -102,7 +102,7 @@ export const NAV_ITEMS: INavItem[] = [
 export const PROFILE: IProfile = {
   name: "Adekemi",
   title: "Frontend Engineers",
-  imageSrc: "/profile.jpeg",
+  imageSrc: "./profile.jpeg",
   imageAlt: "Adekemi Bamiteko",
   initials: "BA",
   email: "adekemibamiteko@gmail.com",
@@ -288,7 +288,7 @@ export const PROJECTS: IProject[] = [
       "Github Pages",
     ],
 
-    image: "/nft_marketplace.png",
+    image: "./nft_marketplace.png",
   },
   {
     title: "xTractify",
@@ -301,7 +301,7 @@ export const PROJECTS: IProject[] = [
       "Api Integration",
     ],
 
-    image: "/xtractify.png",
+    image: "./xtractify.png",
     liveUrl: "https://d1k20s9xwxm93g.cloudfront.net/auth/signin",
     sourceCode: "https://github.com/adeke910/pnpm-monorepo",
     description:
@@ -310,7 +310,7 @@ export const PROJECTS: IProject[] = [
   {
     title: "Helper Apps",
     techStack: ["Typescript", "Pnpm Workspaces"],
-    image: "/helper.png",
+    image: "./helper.png",
     sourceCode: "https://github.com/Muhammad-Tahir-S/helper-apps",
     description:
       "This monorepo contains the frontend and backend services for a suite of collaborative applications, including a Task Manager and a Notes app. It's configured with pnpm workspaces, TypeScript, and a full suite of development tools to ensure code quality and consistency.",

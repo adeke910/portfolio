@@ -10,6 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/shared/components/ui/tooltip";
+import { Briefcase } from "lucide-react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -82,21 +83,7 @@ export default function Experience() {
                   className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-xl shadow-lg mr-6 shrink-0`}
                   style={{ backgroundColor: exp.color }}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-briefcase w-6 h-6 text-white"
-                  >
-                    <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    <rect width="20" height="14" x="2" y="6" rx="2"></rect>
-                  </svg>
+                  <Briefcase />
                 </div>
                 <div className="flex-1">
                   <Card className="gap-0">
@@ -123,8 +110,11 @@ export default function Experience() {
                     </div>
                     <div className="mt-3 ml-1 grid grid-cols-6 place-items-center gap-x-3 gap-y-4  md:grid-cols-10 lg:grid-cols-20">
                       {exp.stack.map((tech) => (
-                        <div className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-white/5">
-                          <Tooltip key={tech.name}>
+                        <div
+                          className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-white/5"
+                          key={tech.name}
+                        >
+                          <Tooltip>
                             <TooltipTrigger>
                               <tech.Icon className="size-5" />
                             </TooltipTrigger>
