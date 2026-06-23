@@ -67,7 +67,7 @@ export default function Profile() {
           Profile
         </h2>
         <div className="flex md:flex-row flex-col gap-5 justify-between">
-          <div className="flex flex-col gap-5 ">
+          <div className="flex flex-col gap-5">
             <p className="text-4xl leading-relaxed  font-semibold text-primary slide-up-and-fade">
               {PROFILE.profileText1}
             </p>
