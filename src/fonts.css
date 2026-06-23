@@ -1,0 +1,25 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/barlow-semi-condensed/400.css";
+@import "@fontsource/barlow-semi-condensed/500.css";
+@import "@fontsource/barlow-semi-condensed/600.css";
+@import "@fontsource/barlow-condensed/400.css";
+@import "@fontsource/barlow-condensed/500.css";
+@import "@fontsource/barlow-condensed/600.css";
+
+@font-face {
+  font-family: "GrandSlang";
+  src: url("/fonts/GrandSlang-Roman.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root {
+  --font-inter: "Inter", sans-serif;
+  --font-barlow: "Barlow Semi Condensed", sans-serif;
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-geist-sans: "Inter", sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-grand-slang: "GrandSlang", serif;
+}
