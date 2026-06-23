@@ -80,8 +80,8 @@ const Skills = () => {
         </div>
         <div className=" mt-6 box-border columns-1 gap-[1em] space-y-4 md:columns-2 lg:columns-3 items-start justify-items-start ">
           <Card className="flex flex-wrap h-80 w-full">
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-red-500/30 pb-3">
+            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-primary/50 to-accent/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
                 Languages
               </span>
@@ -100,7 +100,7 @@ const Skills = () => {
           </Card>
           <Card className="flex flex-wrap h-100 w-full">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-red-500/30 pb-3">
+            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
                 Tools
               </span>
@@ -119,7 +119,7 @@ const Skills = () => {
           </Card>
           <Card className="flex flex-wrap h-120 w-full">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-red-500/30 pb-3">
+            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
                 Technical Skills
               </span>
