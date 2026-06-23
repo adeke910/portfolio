@@ -92,11 +92,11 @@ export const STACKS: IStack[] = [
 
 export const NAV_ITEMS: INavItem[] = [
   // { label: "", href: "/" },
-  { label: "  Profile", href: "/#profile" },
-  { label: "Catalogue", href: "/#catalogue" },
-  { label: "Skills", href: "/#skills" },
+  { label: "  Profile", href: "/portfolio/#profile" },
+  { label: "Catalogue", href: "/portfolio/#catalogue" },
+  { label: "Skills", href: "/portfolio/#skills" },
   // { label: "Experience", href: "/#experience" },
-  { label: "Contact Me", href: "/#contact" },
+  { label: "Contact Me", href: "/portfolio/#contact" },
 ];
 
 export const PROFILE: IProfile = {
