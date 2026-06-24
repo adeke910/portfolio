@@ -91,12 +91,12 @@ export const STACKS: IStack[] = [
 ];
 
 export const NAV_ITEMS: INavItem[] = [
-  // { label: "", href: "/" },
-  { label: "  Profile", href: "/portfolio/#profile" },
-  { label: "Catalogue", href: "/portfolio/#catalogue" },
-  { label: "Skills", href: "/portfolio/#skills" },
-  // { label: "Experience", href: "/#experience" },
-  { label: "Contact Me", href: "/portfolio/#contact" },
+  { label: "Home", href: "/" },
+  { label: "Profile", href: "/#profile" },
+  { label: "Catalogue", href: "/#catalogue" },
+  // { label: "Skills", href: "skills" },
+  { label: "Experience", href: "/#experience" },
+  // { label: "Contact Me", href: "contact" },
 ];
 
 export const PROFILE: IProfile = {
@@ -122,7 +122,11 @@ export const PROFILE: IProfile = {
       Icon: LinkedInIcon,
       url: "https://www.linkedin.com/in/adekemi-b-8b0809171/",
     },
-    { text: "CV", Icon: DownloadIcon, url: "/Adekemi_Bamiteko_Résumé.pdf" },
+    {
+      text: "CV",
+      Icon: DownloadIcon,
+      url: "/portfolio/Adekemi_Bamiteko_Résumé.pdf",
+    },
   ],
   metrics: [
     {

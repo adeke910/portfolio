@@ -1,8 +1,3 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
-import { getScrollContainer } from "../shared/lib/scroll";
 import { MY_EXPERIENCE } from "@/shared/lib/data";
 import { Card } from "@/shared/components/ui/card";
 import {
@@ -11,31 +6,37 @@ import {
   TooltipTrigger,
 } from "@/shared/components/ui/tooltip";
 import { Briefcase } from "lucide-react";
+import SectionHeader from "@/shared/components/section-header";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
+      const slideUpEl = containerRef.current?.querySelectorAll(".slide-up");
+
+      if (!slideUpEl?.length) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
-          start: "top 60%",
-          end: "bottom 50%",
-          toggleActions: "restart none none reverse",
-          scrub: 1,
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: 0.5,
         },
       });
 
-      tl.from(containerRef.current, {
-        y: 50,
+      tl.from(".slide-up", {
         opacity: 0,
-        stagger: 0.3,
+        y: 40,
+        ease: "none",
+        stagger: 0.4,
       });
     },
     { scope: containerRef },
@@ -43,14 +44,11 @@ export default function Experience() {
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
           start: "bottom 50%",
-          end: "bottom 20%",
+          end: "bottom 10%",
           scrub: 1,
         },
       });
@@ -64,21 +62,17 @@ export default function Experience() {
   );
   return (
     <section id="experience">
-      <div
-        ref={containerRef}
-        className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)] justify-center w-full"
-      >
-        <div className=" flex flex-col gap-2">
-          <h2 className="text-3xl md:text-4xl font-thin font-grand-slang">
-            Work Experience
-          </h2>
-          <h4 className="text-xl font-medium ">My professional journey</h4>
-        </div>
+      <div ref={containerRef} className="pb-40">
+        <SectionHeader
+          sectionTitle="Work Experience"
+          sectionSubTitle="My professional journey"
+          className="slide-up"
+        />
         <div className="relative mt-6">
           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-primary"></div>
           <div className="space-y-12">
             {MY_EXPERIENCE.map((exp, i) => (
-              <div className="relative flex items-start" key={i}>
+              <div className="relative flex items-start " key={i}>
                 <div
                   className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-xl shadow-lg mr-6 shrink-0`}
                   style={{ backgroundColor: exp.color }}
@@ -103,7 +97,7 @@ export default function Experience() {
                         <p className="text-sm text-muted-foreground font-barlow-condensed">
                           {exp.location}
                         </p>
-                        <span className="inline-block px-3 py-1 bg-primary/20 text-primary-foreground rounded-full text-xs font-medium mt-2">
+                        <span className="inline-block px-3 py-1 bg-primary/80 dark:bg-primary/20 text-primary-foreground rounded-full text-xs font-medium mt-2">
                           {exp.model}
                         </span>
                       </div>
@@ -111,7 +105,7 @@ export default function Experience() {
                     <div className="mt-3 ml-1 grid grid-cols-6 place-items-center gap-x-3 gap-y-4  md:grid-cols-10 lg:grid-cols-20">
                       {exp.stack.map((tech) => (
                         <div
-                          className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-white/5"
+                          className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-white/5 dark:bg-primary/20"
                           key={tech.name}
                         >
                           <Tooltip>

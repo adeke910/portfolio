@@ -1,89 +1,58 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import React from "react";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Button, ButtonTextClone } from "@/shared/components/ui/button";
 import { Badge } from "../shared/components/ui/badge";
 import { PROFILE, STACKS } from "@/shared/lib/data";
 import ScrollArrow from "@/shared/components/scroll-arrow";
-import { getScrollContainer } from "@/shared/lib/scroll";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function IntroSection() {
-  const container = React.useRef<HTMLDivElement>(null);
-
+  const containerRef = useRef<HTMLDivElement>(null);
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
-
       const tl = gsap.timeline({
         scrollTrigger: {
-          id: "intro-in",
-          trigger: container.current,
-          scroller: scroller ?? undefined,
-          start: "top 70%",
-          end: "bottom bottom",
-          scrub: 0.5,
-        },
-      });
-
-      tl.from(".slide-up-and-fade", {
-        y: 150,
-        opacity: 0,
-        stagger: 0.05,
-      });
-    },
-    { scope: container },
-  );
-
-  useGSAP(
-    () => {
-      const scroller = getScrollContainer();
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          id: "intro-out",
-          trigger: container.current,
-          scroller: scroller ?? undefined,
-          start: "bottom 50%",
+          trigger: containerRef.current,
+          start: "bottom 70%",
           end: "bottom 10%",
-          scrub: 0.5,
+          scrub: 1,
         },
       });
 
-      tl.to(".slide-up-and-fade", {
-        y: -150,
-        opacity: 0,
-        stagger: 0.02,
-      });
+      tl.fromTo(
+        ".slide-up-fade",
+        { y: 0 },
+        { y: -150, opacity: 0, stagger: 0.02 },
+      );
     },
-    { scope: container },
+    { scope: containerRef },
   );
   return (
-    <section className="relative overflow-hidden" id="intro">
+    <section className="relative overflow-hidden" id="home">
+      <ScrollArrow />
       <div
-        className="flex items-center min-h-[calc(100svh-80px)]"
-        ref={container}
+        className="h-[90vh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col"
+        ref={containerRef}
       >
-        <ScrollArrow />
-        <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px] slide-up-and-fade">
+        <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
           <div className="flex flex-col gap-2 items-start">
-            <h1 className="font-barlow-condensed font-medium tracking-tight leading-[.75] md:text-[120px] text-[80px]">
+            <h1 className="font-barlow-condensed font-medium tracking-tight leading-[.75] md:text-[120px] text-[80px] slide-up-fade">
               <span className=" text-primary">FRONTEND</span>
               <br />
               <span className=" text-primary-foreground pl-12">ENGINEER</span>
             </h1>
 
-            <p className="mt-2 text-base leading-relaxed font-mono text-muted-foreground slide-up-and-fade">
+            <p className="mt-2 text-base leading-relaxed font-mono slide-up-fade">
               {PROFILE.welcomeText}
             </p>
           </div>
-
-          <div className="mt-4 flex flex-wrap items-center  gap-2 justify-start slide-up-and-fade">
+          <div className="mt-4 flex flex-wrap items-center  gap-2 justify-start ">
             {STACKS.map(({ name, Icon }) => (
-              <Badge variant="outline" key={name}>
+              <Badge variant="outline" key={name} className="slide-up-fade">
                 <Icon />
                 {name}
               </Badge>
@@ -92,7 +61,7 @@ export default function IntroSection() {
           <Button
             variant="banner"
             asChild
-            className="mt-9 slide-up-and-fade"
+            className="mt-9 slide-up-fade"
             style={{
               translate: "none",
               rotate: "none",
@@ -110,11 +79,11 @@ export default function IntroSection() {
               </span>
             </a>
           </Button>
-          <div className="flex items-center gap-2 mt-3 slide-up-and-fade">
+          <div className="flex items-center gap-2 mt-3 ">
             <Button
               variant="link"
               asChild
-              className="p-0 gap-0 text-primary hover:text-primary/80"
+              className="p-0 gap-0 text-primary hover:text-primary/80 slide-up-fade"
             >
               <a
                 href={

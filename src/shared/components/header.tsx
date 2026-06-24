@@ -1,14 +1,12 @@
-
 import BubbleMenu from "./bubble-menu";
-import SplitText from "./split-text";
+// import SplitText from "./split-text";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { NAV_ITEMS, PROFILE } from "../lib/data";
 
 export default function Header() {
-
   return (
-    <div className="relative h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/30">
+    <div className=" h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/40 ">
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
@@ -40,22 +38,9 @@ export default function Header() {
             <AvatarFallback>{PROFILE.initials}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-primary/90 ">
+        <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-primary-foreground ">
           {NAV_ITEMS.map((item) => (
-            <SplitText
-              key={item.label}
-              text={item.label}
-              tag="a"
-              href={item.href}
-              trigger="hover"
-              splitType="chars"
-              delay={18}
-              duration={0.4}
-              from={{ yPercent: 110, opacity: 0 }}
-              to={{ yPercent: 0, opacity: 1 }}
-              ease="power3.out"
-              className="hover:text-primary dark:hover:text-primary transition"
-            />
+            <button key={item.label}>{item.label}</button>
           ))}
         </div>
       </div>

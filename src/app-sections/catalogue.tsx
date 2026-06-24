@@ -1,10 +1,10 @@
+import { PROJECTS } from "@/shared/lib/data";
+import { Card } from "@/shared/components/ui/card";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
-import { getScrollContainer } from "../shared/lib/scroll";
-import { PROJECTS } from "@/shared/lib/data";
-import { Card } from "@/shared/components/ui/card";
+import SectionHeader from "@/shared/components/section-header";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -13,23 +13,24 @@ const Catalogue = () => {
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
+      const slideUpEl = containerRef.current?.querySelectorAll(".slide-up");
+
+      if (!slideUpEl?.length) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          id: "catalogue-in",
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
-          start: "top 70%",
-          end: "bottom bottom",
+          start: "top 80%",
+          end: "bottom 80%",
           scrub: 0.5,
         },
       });
 
-      tl.from(containerRef.current, {
-        y: 150,
+      tl.from(".slide-up", {
         opacity: 0,
-        stagger: 0.05,
+        y: 40,
+        ease: "none",
+        stagger: 0.4,
       });
     },
     { scope: containerRef },
@@ -37,40 +38,32 @@ const Catalogue = () => {
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
-
       const tl = gsap.timeline({
         scrollTrigger: {
-          id: "catalogue-out",
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
           start: "bottom 50%",
           end: "bottom 10%",
-          scrub: 0.5,
+          scrub: 1,
         },
       });
 
       tl.to(containerRef.current, {
         y: -150,
         opacity: 0,
-        stagger: 0.02,
       });
     },
     { scope: containerRef },
   );
-
   return (
     <section id="catalogue">
-      <div
-        ref={containerRef}
-        className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)]  justify-center "
-      >
-        <h2 className="text-3xl md:text-4xl  font-thin font-grand-slang ">
-          Catalogue
-        </h2>
-        <p className="text-muted-foreground">Showcasing my personal projects</p>
+      <div ref={containerRef} className="pb-40">
+        <SectionHeader
+          sectionTitle="Catalogue"
+          className="slide-up"
+          sectionSubTitle="Showcasing my personal projects"
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10">
           {PROJECTS.map((project) => (
             <Card key={project.title}>
               <div className="relative overflow-hidden">

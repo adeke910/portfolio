@@ -1,8 +1,3 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { useRef } from "react";
-import { getScrollContainer } from "../shared/lib/scroll";
 import { MY_STACK } from "../shared/lib/data";
 import { Card } from "../shared/components/ui/card";
 import {
@@ -10,31 +5,36 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "../shared/components/ui/tooltip";
+import SectionHeader from "@/shared/components/section-header";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useRef } from "react";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
+      const slideUpEl = containerRef.current?.querySelectorAll(".slide-up");
+
+      if (!slideUpEl?.length) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
-          start: "top 60%",
-          end: "bottom 50%",
-          toggleActions: "restart none none reverse",
-          scrub: 1,
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: 0.5,
         },
       });
 
-      tl.from(containerRef.current, {
-        y: 50,
+      tl.from(".slide-up", {
         opacity: 0,
-        stagger: 0.3,
+        y: 40,
+        ease: "none",
+        stagger: 0.4,
       });
     },
     { scope: containerRef },
@@ -42,14 +42,11 @@ const Skills = () => {
 
   useGSAP(
     () => {
-      const scroller = getScrollContainer();
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          scroller: scroller ?? undefined,
           start: "bottom 50%",
-          end: "bottom 20%",
+          end: "bottom 10%",
           scrub: 1,
         },
       });
@@ -61,21 +58,15 @@ const Skills = () => {
     },
     { scope: containerRef },
   );
-
   return (
     <section id="skills">
-      <div
-        ref={containerRef}
-        className="flex flex-col gap-5 slide-up-and-fade min-h-[calc(100svh-80px)] justify-center w-full"
-      >
-        <div className=" flex flex-col gap-2">
-          <h2 className="text-3xl md:text-4xl  font-thin font-grand-slang">
-            Skills
-          </h2>
-          <h4 className="text-xl font-medium ">
-            Technologies I typically work with
-          </h4>
-        </div>
+      <div ref={containerRef} className="pb-40">
+        <SectionHeader
+          className="slide-up"
+          sectionTitle="Skills"
+          sectionSubTitle="Technologies I typically work with"
+        />
+
         <div className=" mt-6 box-border columns-1 gap-[1em] space-y-4 md:columns-2 lg:columns-3 items-start justify-items-start ">
           <Card className="flex flex-wrap h-80 w-full ">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -96,7 +87,7 @@ const Skills = () => {
               ))}
             </div>
           </Card>
-          <Card className="flex flex-wrap h-100 w-full">
+          <Card className="flex flex-wrap h-100 w-full ">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
@@ -115,7 +106,7 @@ const Skills = () => {
               ))}
             </div>
           </Card>
-          <Card className="flex flex-wrap h-120 w-full">
+          <Card className="flex flex-wrap h-120 w-full ">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight transition-colors duration-300 group-hover:text-white">

@@ -52,20 +52,20 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: rgb(0, 0, 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.008 326);
+  --background: #faf7ee;
+  --foreground: #141937;
+  --card: #141937;
+  --card-foreground: #fafbfb;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.008 326);
-  --primary: #fafafa;
-  --primary-foreground: rgb(0, 0, 0);
-  --secondary: #d8e2dc33;
+  --primary: #facc15;
+  --primary-foreground: #141937;
+  --secondary: #faf7ee;
   --secondary-foreground: oklch(0.212 0.019 322.12);
   --muted: oklch(0.96 0.003 325.6);
   --muted-foreground: rgb(213, 213, 213);
-  --accent: #9d8189;
-  --accent-foreground: oklch(0.212 0.019 322.12);
+  --accent: #636577;
+  --accent-foreground: #faf7ee;
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0.005 325.62);
   --input: oklch(0.922 0.005 325.62);
@@ -136,21 +136,6 @@
 }
 
 @layer utilities {
-  @keyframes slideUpFade {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .slide-up-fade {
-    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -204,8 +189,17 @@
   overflow: hidden;
   z-index: 50;
 }
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+main {
+  height: 100%;
+}
+
+section {
+  scroll-snap-align: start;
 }
 
 .scroll-bar__progress {
@@ -213,15 +207,6 @@ html {
   height: 100%;
   background-color: var(--primary);
   border-radius: 9999px;
-}
-
-.scroll-arrow {
-  position: absolute;
-  left: 50%;
-  bottom: 3rem;
-  transform: translateX(-50%);
-  pointer-events: none;
-  will-change: transform, opacity;
 }
 
 .svg-arrow {
@@ -250,4 +235,9 @@ html {
     black calc(100% - 3rem),
     transparent 100%
   );
+}
+
+#scroll-container {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }

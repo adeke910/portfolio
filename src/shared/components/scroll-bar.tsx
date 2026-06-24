@@ -1,53 +1,31 @@
+import { useEffect, useRef } from "react";
 
-import { useEffect, useState } from "react";
-import { getScrollContainer } from "../lib/scroll";
+export default function ScrollBar() {
+  const scrollBarRef = useRef<HTMLDivElement>(null);
 
-type ScrollTarget = Window | HTMLElement;
-
-function getScrollMetrics(target: ScrollTarget) {
-  if (!(target instanceof HTMLElement)) {
-    return {
-      scrollTop: window.scrollY,
-      docHeight: document.documentElement.scrollHeight - window.innerHeight,
-    };
-  }
-
-  return {
-    scrollTop: target.scrollTop,
-    docHeight: target.scrollHeight - target.clientHeight,
-  };
-}
-
-export function ScrollBar() {
-  const [progress, setProgress] = useState(0);
   useEffect(() => {
-    const scrollContainer = getScrollContainer();
-    const target: ScrollTarget = scrollContainer ?? window;
-
     const handleScroll = () => {
-      const { scrollTop, docHeight } = getScrollMetrics(target);
-      const percentage =
-        docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
-      setProgress(percentage);
+      if (scrollBarRef.current) {
+        const { scrollHeight, clientHeight } = document.documentElement;
+        const scrollableHeight = scrollHeight - clientHeight;
+        const scrollY = window.scrollY;
+        const scrollProgress = (scrollY / scrollableHeight) * 100;
+
+        scrollBarRef.current.style.transform = `translateY(-${
+          100 - scrollProgress
+        }%)`;
+      }
     };
-    target.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
+
     handleScroll();
 
-    return () => {
-      target.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="scroll-bar">
-      <div
-        className="scroll-bar__progress"
-        style={{
-          transform: `translateY(${-(100 - progress)}%)`,
-        }}
-      />
+      <div ref={scrollBarRef} className="scroll-bar__progress" />
     </div>
   );
 }
