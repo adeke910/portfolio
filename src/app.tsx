@@ -1,8 +1,3 @@
-"use client";
-
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "./shared/components/header";
 import Silk from "./shared/components/silk";
 import { useTheme } from "./shared/components/theme-provider";
@@ -14,8 +9,6 @@ import Profile from "./app-sections/profile";
 import Experience from "./app-sections/experience";
 import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function App() {
   const { theme } = useTheme();
