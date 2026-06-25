@@ -4,16 +4,14 @@ import { Slot } from "radix-ui";
 import { cn } from "@/shared/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex justify-center items-center relative overflow-hidden transition-colors outline-none rounded-md",
+  "group/button inline-flex justify-center items-center text-center relative overflow-hidden transition-colors outline-none rounded-md",
   {
     variants: {
       variant: {
-        default:
-          "gap-2 text-lg uppercase tracking-widest  bg-primary text-primary-foreground hover:bg-primary/80 ",
+        default: "bg-primary text-primary-foreground hover:bg-primary/80 ",
         banner:
-          "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 slide-up-fade banner-button",
-        outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:bg-transparent dark:hover:bg-input/30",
+          "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 banner-button gap-2 text-lg uppercase tracking-widest ",
+        outline: "border",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
@@ -24,7 +22,7 @@ const buttonVariants = cva(
       },
       size: {
         default:
-          "gap-1.5 has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5 rounded-none group h-12 px-8 ",
+          "gap-1.5 has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5 rounded-md group px-4 py-2 ",
         xs: "h-6 gap-1 px-2.5 text-xs has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-8 gap-1 px-3 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
         lg: "h-10 gap-1.5 px-4 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
@@ -90,4 +88,5 @@ function ButtonTextClone({
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export { Button, buttonVariants, ButtonTextClone };

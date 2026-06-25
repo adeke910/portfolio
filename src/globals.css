@@ -54,11 +54,11 @@
 :root {
   --background: #faf7ee;
   --foreground: #141937;
-  --card: #141937;
+  --card: #2c3b35;
   --card-foreground: #fafbfb;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0.008 326);
-  --primary: #facc15;
+  --primary: #14b8a6;
   --primary-foreground: #141937;
   --secondary: #faf7ee;
   --secondary-foreground: oklch(0.212 0.019 322.12);

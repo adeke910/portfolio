@@ -57,7 +57,7 @@ export default function Profile() {
       <div ref={container} className="pb-40">
         <SectionHeader sectionTitle="Profile" className="slide-up-fade" />
         <div className="flex md:flex-row flex-col gap-5 justify-between">
-          <div className="flex flex-col gap-20">
+          <div className="flex flex-col gap-10">
             <p className="text-4xl leading-relaxed  font-semibold text-primary slide-up-fade">
               {PROFILE.profileText1}
             </p>

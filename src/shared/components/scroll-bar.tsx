@@ -1,31 +1,39 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function ScrollBar() {
-  const scrollBarRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (scrollBarRef.current) {
-        const { scrollHeight, clientHeight } = document.documentElement;
-        const scrollableHeight = scrollHeight - clientHeight;
-        const scrollY = window.scrollY;
-        const scrollProgress = (scrollY / scrollableHeight) * 100;
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-        scrollBarRef.current.style.transform = `translateY(-${
-          100 - scrollProgress
-        }%)`;
-      }
+      const percentage =
+        docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+
+      setProgress(percentage);
     };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
     <div className="scroll-bar">
-      <div ref={scrollBarRef} className="scroll-bar__progress" />
+      <div
+        className="scroll-bar__progress"
+        style={{
+          transform: `translateY(${-(100 - progress)}%)`,
+        }}
+      />
     </div>
   );
 }

@@ -10,12 +10,14 @@ export default function SectionHeader({
   className?: string;
 }) {
   return (
-    <div className="mb-6">
+    <div className="mb-6 text-primary-foreground">
       <h2 className={cn("text-3xl md:text-5xl font-semibold", className)}>
         {sectionTitle}
       </h2>
       {sectionSubTitle && (
-        <p className={cn("text-lg opacity-70", className)}>{sectionSubTitle}</p>
+        <p className={cn("text-lg font-medium ", className)}>
+          {sectionSubTitle}
+        </p>
       )}
     </div>
   );

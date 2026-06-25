@@ -91,12 +91,12 @@ export const STACKS: IStack[] = [
 ];
 
 export const NAV_ITEMS: INavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Profile", href: "/#profile" },
-  { label: "Catalogue", href: "/#catalogue" },
-  // { label: "Skills", href: "skills" },
-  { label: "Experience", href: "/#experience" },
-  // { label: "Contact Me", href: "contact" },
+  { label: "Home", href: "home" },
+  { label: "Profile", href: "profile" },
+  { label: "Catalogue", href: "catalogue" },
+  { label: "Skills", href: "skills" },
+  { label: "Experience", href: "experience" },
+  { label: "Contact me", href: "contact" },
 ];
 
 export const PROFILE: IProfile = {
@@ -313,7 +313,7 @@ export const PROJECTS: IProject[] = [
   },
   {
     title: "Helper Apps",
-    techStack: ["Typescript", "Pnpm Workspaces"],
+    techStack: ["Typescript", "Pnpm Workspaces", "Chakra UI"],
     image: "./helper.png",
     sourceCode: "https://github.com/Muhammad-Tahir-S/helper-apps",
     description:

@@ -3,10 +3,13 @@ import BubbleMenu from "./bubble-menu";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { NAV_ITEMS, PROFILE } from "../lib/data";
+import { useLenis } from "lenis/react";
 
 export default function Header() {
+  const lenis = useLenis();
+
   return (
-    <div className=" h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/40 ">
+    <div className=" h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/40 sticky">
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">
@@ -40,7 +43,13 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-primary-foreground ">
           {NAV_ITEMS.map((item) => (
-            <button key={item.label}>{item.label}</button>
+            <button
+              key={item.label}
+              onClick={() => lenis?.scrollTo(`#${item.href}`)}
+              className="hover:text-primary"
+            >
+              {item.label}
+            </button>
           ))}
         </div>
       </div>

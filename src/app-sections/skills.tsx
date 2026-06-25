@@ -45,7 +45,7 @@ const Skills = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "bottom 50%",
+          start: "bottom 20%",
           end: "bottom 10%",
           scrub: 1,
         },
@@ -67,7 +67,7 @@ const Skills = () => {
           sectionSubTitle="Technologies I typically work with"
         />
 
-        <div className=" mt-6 box-border columns-1 gap-[1em] space-y-4 md:columns-2 lg:columns-3 items-start justify-items-start ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Card className="flex flex-wrap h-80 w-full ">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">

@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 import SectionHeader from "@/shared/components/section-header";
+import { Badge } from "@/shared/components/ui/badge";
+import { Button } from "@/shared/components/ui/button";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -65,7 +67,7 @@ const Catalogue = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-10">
           {PROJECTS.map((project) => (
-            <Card key={project.title}>
+            <Card key={project.title} className="justify-between gap-5">
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -75,47 +77,49 @@ const Catalogue = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {project.techStack.slice(0, 3).map((tech) => (
-                    <span
+                    <Badge
+                      variant="secondary"
                       key={tech}
-                      className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary"
+                      className="px-2 py-1 text-xs rounded-xs bg-primary/10 text-primary font-mono h-5"
                     >
                       {tech}
-                    </span>
+                    </Badge>
                   ))}
 
                   {project.techStack.length > 3 && (
-                    <span className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                    <span className="px-2 py-1 text-xs rounded-full bg-secondary/10 text-muted-foreground">
                       +{project.techStack.length - 3} more
                     </span>
                   )}
                 </div>
 
-                <div className="flex gap-3">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 rounded-md bg-primary text-primary-foreground text-center"
-                  >
-                    Live Demo
-                  </a>
-
-                  <a
-                    href={project.sourceCode}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 rounded-md border text-center"
-                  >
-                    GitHub
-                  </a>
+                <div className="flex gap-3 align-bottom">
+                  <Button asChild className="flex-1">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  </Button>
+                  <Button variant="outline" className="flex-1" asChild>
+                    <a
+                      href={project.sourceCode}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  </Button>
                 </div>
               </div>
             </Card>

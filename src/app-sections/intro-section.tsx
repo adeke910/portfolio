@@ -61,7 +61,7 @@ export default function IntroSection() {
           <Button
             variant="banner"
             asChild
-            className="mt-9 slide-up-fade"
+            className="mt-9 slide-up-fade rounded-none"
             style={{
               translate: "none",
               rotate: "none",
@@ -71,7 +71,7 @@ export default function IntroSection() {
             }}
           >
             <a href={`mailto:${PROFILE.email}`}>
-              <span className="absolute top-[200%] left-0 right-0 h-full bg-white rounded-[50%] group-hover/button:top-0 transition-all duration-500 scale-150">
+              <span className="absolute top-[200%] left-0 right-0 h-full bg-white dark:bg-black rounded-[50%] group-hover/button:top-0 transition-all duration-500 scale-150">
                 <Mail className="size-4" />
               </span>
               <span className="z-1 flex items-center gap-2">

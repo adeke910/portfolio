@@ -47,12 +47,14 @@ const ScrollArrow = () => {
   return (
     <svg
       id="banner-arrow-svg"
-      width="376"
-      height="111"
       viewBox="0 0 376 111"
       fill="transparent"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-20 left-1/2 -translate-x-1/2 z-0"
+      className="
+      absolute bottom-20 left-1/2 -translate-x-1/2 z-0
+      w-[350px] md:w-[376px]
+      h-auto
+    "
       ref={svgRef}
     >
       <path

@@ -24,9 +24,9 @@ export default function App() {
           rotation={0}
         />
       </div>
-      {/* <div className="fixed top-4 md:top-10 left-0 right-0 z-50 px-4 md:px-10">
+      <div className="fixed top-4 md:top-10 left-0 right-0 z-50 px-4 md:px-10">
         <Header />
-      </div> */}
+      </div>
       <ReactLenis
         root
         options={{
@@ -34,8 +34,8 @@ export default function App() {
           duration: 1.4,
         }}
       >
-        <div className=" relative z-10 min-h-screen w-full bg-secondary/90 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10">
-          <Header />
+        <div className=" relative z-10 min-h-screen w-full bg-secondary/80 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10">
+          {/* <Header /> */}
 
           <main>
             <IntroSection />
