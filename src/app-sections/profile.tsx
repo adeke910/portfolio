@@ -54,7 +54,7 @@ export default function Profile() {
   );
   return (
     <section id="profile">
-      <div ref={container} className="pb-40">
+      <div ref={container} className=" pt-30">
         <SectionHeader sectionTitle="Profile" className="slide-up-fade" />
         <div className="flex md:flex-row flex-col gap-5 justify-between">
           <div className="flex flex-col gap-10">

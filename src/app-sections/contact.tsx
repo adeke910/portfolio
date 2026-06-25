@@ -1,5 +1,4 @@
 import { getCurrentYear } from "@/shared/hooks/get-current-year";
-// import { Button } from "../shared/components/ui/button";
 import { PROFILE } from "../shared/lib/data";
 
 import { Button } from "@/shared/components/ui/button";
@@ -7,14 +6,12 @@ import { Button } from "@/shared/components/ui/button";
 const Footer = () => {
   return (
     <section id="contact">
-      <div className="relative overflow-hidden border-t border-accent/20  h-20 md:h-30 items-center flex ">
+      <div className="relative overflow-hidden border-t border-accent/20  h-20 items-center flex ">
         <div className="flex justify-between md:justify-center gap-10 w-full">
-          <div className="flex items-center ">
-            <p className="text-center text-xs leading-5 text-primary-foreground">
-              {` © ${getCurrentYear()}.`}
-              <span className="font-medium ml-1 md:ml-3  text-accent  text-base">
-                Adekemi Bamiteko
-              </span>
+          <div className="flex items-center text-[10px] gap-5">
+            <p className="text-primary-foreground">
+              Adekemi Bamiteko
+              <span className="font-medium ext-accent">{` © ${getCurrentYear()}.`}</span>
             </p>
           </div>
           <div className=" flex items-center gap-3">

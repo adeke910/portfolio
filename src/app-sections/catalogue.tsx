@@ -58,7 +58,7 @@ const Catalogue = () => {
   );
   return (
     <section id="catalogue">
-      <div ref={containerRef} className="pb-40">
+      <div ref={containerRef} className="pt-30">
         <SectionHeader
           sectionTitle="Catalogue"
           className="slide-up"

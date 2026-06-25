@@ -9,7 +9,12 @@ export default function Header() {
   const lenis = useLenis();
 
   return (
-    <div className=" h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/40 sticky">
+    <div
+      style={{
+        backdropFilter: "blur(16px)",
+      }}
+      className=" h-16 w-full flex items-center justify-between px-2 md:px-4 lg:px-6 rounded-lg bg-accent/40 sticky"
+    >
       <div className="flex items-center gap-10">
         <div className="flex items-center gap-3">
           <div className="md:hidden block">

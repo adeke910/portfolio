@@ -65,7 +65,7 @@ export default function ScrollTop() {
       ref={btnRef}
       size="icon-lg"
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 z-50 shadow-lg"
+      className="fixed bottom-21 right-6 z-50 shadow-lg"
       aria-label="Scroll to top"
     >
       <ArrowUp className="size-4" />

@@ -62,7 +62,7 @@ export default function Experience() {
   );
   return (
     <section id="experience">
-      <div ref={containerRef} className="pb-40">
+      <div ref={containerRef} className="py-30">
         <SectionHeader
           sectionTitle="Work Experience"
           sectionSubTitle="My professional journey"

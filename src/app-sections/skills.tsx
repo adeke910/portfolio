@@ -60,7 +60,7 @@ const Skills = () => {
   );
   return (
     <section id="skills">
-      <div ref={containerRef} className="pb-40">
+      <div ref={containerRef} className="pt-30">
         <SectionHeader
           className="slide-up"
           sectionTitle="Skills"
