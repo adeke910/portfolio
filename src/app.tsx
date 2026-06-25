@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none ">
         <Silk
           speed={5}
           scale={1}
@@ -33,10 +33,11 @@ export default function App() {
           lerp: 0.1,
           duration: 1.4,
           smoothWheel: true,
+          syncTouch: true,
           // smoothTouch: false,
         }}
       >
-        <div className=" relative z-10 min-h-screen w-full bg-secondary/80 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10">
+        <div className=" relative z-10 min-h-screen w-full bg-secondary/80 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10 no-scrollbar">
           {/* <Header /> */}
 
           <main>

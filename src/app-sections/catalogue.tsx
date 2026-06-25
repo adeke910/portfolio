@@ -102,15 +102,21 @@ const Catalogue = () => {
                 </div>
 
                 <div className="flex gap-3 align-bottom">
-                  <Button asChild className="flex-1">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                  {project.liveUrl ? (
+                    <Button asChild className="flex-1">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button className="flex-1" disabled>
                       Live Demo
-                    </a>
-                  </Button>
+                    </Button>
+                  )}
                   <Button variant="outline" className="flex-1" asChild>
                     <a
                       href={project.sourceCode}

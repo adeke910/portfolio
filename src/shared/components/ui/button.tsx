@@ -4,14 +4,14 @@ import { Slot } from "radix-ui";
 import { cn } from "@/shared/lib/utils";
 
 const buttonVariants = cva(
-  "group/button inline-flex justify-center items-center text-center relative overflow-hidden transition-colors outline-none rounded-md",
+  "group/button inline-flex justify-center items-center text-center relative overflow-hidden transition-colors outline-none rounded-md disabled:pointer-events-none disabled:opacity-50 ",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/80 ",
         banner:
           "gap-2 text-lg uppercase tracking-widest bg-primary text-primary-foreground hover:bg-primary/80 banner-button gap-2 text-lg uppercase tracking-widest ",
-        outline: "border",
+        outline: "border hover:border-primary/20",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:

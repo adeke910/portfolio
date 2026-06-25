@@ -70,7 +70,7 @@ const Skills = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <Card className="flex flex-wrap h-80 w-full ">
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
+            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent pb-3">
               <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
                 Languages
               </span>
