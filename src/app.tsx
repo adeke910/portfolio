@@ -1,6 +1,6 @@
 import Header from "./shared/components/header";
-import Silk from "./shared/components/silk";
-import { useTheme } from "./shared/components/theme-provider";
+// import Silk from "./shared/components/silk";
+// import { useTheme } from "./shared/components/theme-provider";
 import IntroSection from "./app-sections/intro-section";
 import Skills from "./app-sections/skills";
 import Footer from "./app-sections/contact";
@@ -11,11 +11,11 @@ import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
 
 export default function App() {
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
 
   return (
     <div>
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      {/* <div className="fixed inset-0 z-0 pointer-events-none">
         <Silk
           speed={5}
           scale={1}
@@ -23,7 +23,7 @@ export default function App() {
           noiseIntensity={1.5}
           rotation={0}
         />
-      </div>
+      </div> */}
       <div className="fixed top-4 md:top-10 left-0 right-0 z-50 px-4 md:px-10">
         <Header />
       </div>
