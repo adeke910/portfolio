@@ -120,29 +120,17 @@
 }
 
 @layer base {
+  ::-webkit-scrollbar {
+    display: none;
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
   html {
     @apply font-sans;
-  }
-}
-
-@layer utilities {
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
   }
 }
 
@@ -206,9 +194,4 @@
   overflow: hidden;
   transform-origin: center bottom;
   will-change: transform, opacity, clip-path;
-}
-
-#scroll-container {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
 }
