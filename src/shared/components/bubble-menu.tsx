@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { useLenis } from "lenis/react";
 
 import "./bubble-menu.css";
 
@@ -33,35 +34,35 @@ export type BubbleMenuProps = {
 const DEFAULT_ITEMS: MenuItem[] = [
   {
     label: "home",
-    href: "#",
+    href: "#home",
     ariaLabel: "Home",
     rotation: -8,
     hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
   },
   {
     label: "about",
-    href: "#",
+    href: "#about",
     ariaLabel: "About",
     rotation: 8,
     hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
   },
   {
     label: "projects",
-    href: "#",
-    ariaLabel: "Documentation",
+    href: "#projects",
+    ariaLabel: "Projects",
     rotation: 8,
     hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
   },
   {
     label: "blog",
-    href: "#",
+    href: "#blog",
     ariaLabel: "Blog",
     rotation: 8,
     hoverStyles: { bgColor: "#ef4444", textColor: "#ffffff" },
   },
   {
     label: "contact",
-    href: "#",
+    href: "#contact",
     ariaLabel: "Contact",
     rotation: -8,
     hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
@@ -84,11 +85,14 @@ export default function BubbleMenu({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
 
+  const lenis = useLenis();
+
   const overlayRef = useRef<HTMLDivElement>(null);
   const bubblesRef = useRef<HTMLAnchorElement[]>([]);
   const labelRefs = useRef<HTMLSpanElement[]>([]);
 
   const menuItems = items?.length ? items : DEFAULT_ITEMS;
+
   const containerClassName = [
     "bubble-menu",
     useFixedPosition ? "fixed" : "absolute",
@@ -102,6 +106,25 @@ export default function BubbleMenu({
     if (nextState) setShowOverlay(true);
     setIsMenuOpen(nextState);
     onMenuClick?.(nextState);
+  };
+
+  const handleNavigate = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+
+    const id = href.replace("#", "");
+    const target = document.getElementById(id);
+
+    if (target && lenis) {
+      lenis.scrollTo(target, {
+        duration: 1.2,
+        easing: (t: number) => 1 - Math.pow(1 - t, 3),
+      });
+    }
+
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -126,6 +149,7 @@ export default function BubbleMenu({
           duration: animationDuration,
           ease: animationEase,
         });
+
         if (labels[i]) {
           tl.to(
             labels[i],
@@ -141,12 +165,14 @@ export default function BubbleMenu({
       });
     } else if (showOverlay) {
       gsap.killTweensOf([...bubbles, ...labels]);
+
       gsap.to(labels, {
         y: 24,
         autoAlpha: 0,
         duration: 0.2,
         ease: "power3.in",
       });
+
       gsap.to(bubbles, {
         scale: 0,
         duration: 0.2,
@@ -208,6 +234,7 @@ export default function BubbleMenu({
           />
         </button>
       </nav>
+
       {showOverlay && (
         <div
           ref={overlayRef}
@@ -222,6 +249,7 @@ export default function BubbleMenu({
                   href={item.href}
                   aria-label={item.ariaLabel || item.label}
                   className="pill-link"
+                  onClick={(e) => handleNavigate(e, item.href)}
                   style={
                     {
                       "--item-rot": `${item.rotation ?? 0}deg`,
