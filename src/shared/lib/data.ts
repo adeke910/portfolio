@@ -125,7 +125,7 @@ export const PROFILE: IProfile = {
     {
       text: "CV",
       Icon: DownloadIcon,
-      url: "/Adekemi_Bamiteko_Résumé.pdf",
+      url: "/portfolio/Adekemi_Bamiteko_Résumé.pdf",
     },
   ],
   metrics: [
