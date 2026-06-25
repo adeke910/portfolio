@@ -14,7 +14,7 @@ export default function App() {
   const { theme } = useTheme();
 
   return (
-    <div>
+    <div className="h-dvh w-dvw relative">
       <div className="fixed inset-0 z-0 pointer-events-none ">
         <Silk
           speed={5}
