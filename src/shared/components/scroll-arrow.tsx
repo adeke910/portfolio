@@ -51,7 +51,7 @@ const ScrollArrow = () => {
       fill="transparent"
       xmlns="http://www.w3.org/2000/svg"
       className="
-      absolute bottom-20 left-1/2 -translate-x-1/2 z-0
+      absolute bottom-5 md:bottom-20 left-1/2 -translate-x-1/2 z-0
       w-[350px] md:w-[376px]
       h-auto
     "

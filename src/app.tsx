@@ -7,7 +7,7 @@ import Footer from "./app-sections/contact";
 import Catalogue from "./app-sections/catalogue";
 import Profile from "./app-sections/profile";
 import Experience from "./app-sections/experience";
-import { ReactLenis } from "lenis/react";
+// import { ReactLenis } from "lenis/react";
 import "lenis/dist/lenis.css";
 
 export default function App() {
@@ -27,26 +27,28 @@ export default function App() {
       <div className="fixed top-4 md:top-10 left-0 right-0 z-50 px-4 md:px-10">
         <Header />
       </div>
-      <ReactLenis
+      {/* <ReactLenis
         root
         options={{
           lerp: 0.1,
           duration: 1.4,
+          smoothWheel: true,
+    smoothTouch: false,
         }}
-      >
-        <div className=" relative z-10 min-h-screen w-full bg-secondary/80 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10">
-          {/* <Header /> */}
+      > */}
+      <div className=" relative z-10 min-h-screen w-full bg-secondary/80 dark:bg-secondary/50 pt-4 md:pt-10 px-4 md:px-10">
+        {/* <Header /> */}
 
-          <main>
-            <IntroSection />
-            <Profile />
-            <Catalogue />
-            <Skills />
-            <Experience />
-            <Footer />
-          </main>
-        </div>
-      </ReactLenis>
+        <main>
+          <IntroSection />
+          <Profile />
+          <Catalogue />
+          <Skills />
+          <Experience />
+          <Footer />
+        </main>
+      </div>
+      {/* </ReactLenis> */}
     </div>
   );
 }
