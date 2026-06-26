@@ -12,7 +12,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-const Skills = () => {
+const Stack = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -59,11 +59,11 @@ const Skills = () => {
     { scope: containerRef },
   );
   return (
-    <section id="skills">
+    <section id="stack">
       <div ref={containerRef} className="pt-30">
         <SectionHeader
           className="slide-up"
-          sectionTitle="Skills"
+          sectionTitle="Stack"
           sectionSubTitle="Technologies I typically work with"
         />
 
@@ -110,12 +110,12 @@ const Skills = () => {
             <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
               <span className="text-xl font-bold tracking-tight transition-colors duration-300 group-hover:text-white">
-                Technical Skills
+                Libraries & Frameworks
               </span>
             </div>
 
             <div className="relative z-10 mx-auto mt-6 grid grid-cols-3 place-items-center gap-6 text-center lg:mx-0 lg:max-w-none">
-              {MY_STACK.technicalSkills.map((technology) => (
+              {MY_STACK.Libraries.map((technology) => (
                 <Tooltip key={technology.name}>
                   <TooltipTrigger>
                     <technology.Icon className="size-12" />
@@ -131,4 +131,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Stack;

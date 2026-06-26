@@ -2,7 +2,7 @@ import Header from "./shared/components/header";
 import Silk from "./shared/components/silk";
 import { useTheme } from "./shared/components/theme-provider";
 import IntroSection from "./app-sections/intro-section";
-import Skills from "./app-sections/skills";
+import Stack from "./app-sections/stack";
 import Footer from "./app-sections/contact";
 import Catalogue from "./app-sections/catalogue";
 import Profile from "./app-sections/profile";
@@ -45,7 +45,7 @@ export default function App() {
             <IntroSection />
             <Profile />
             <Catalogue />
-            <Skills />
+            <Stack />
             <Experience />
             <Footer />
           </main>

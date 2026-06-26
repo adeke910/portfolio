@@ -69,13 +69,13 @@ export default function Experience() {
           className="slide-up"
         />
         <div className="relative mt-6">
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-primary"></div>
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-linear-to-b from-accent via-primary/30 to-accent"></div>
           <div className="space-y-12">
             {MY_EXPERIENCE.map((exp, i) => (
               <div className="relative flex items-start " key={i}>
                 <div
-                  className={`relative z-10 flex items-center justify-center w-12 h-12 rounded-xl shadow-lg mr-6 shrink-0`}
-                  style={{ backgroundColor: exp.color }}
+                  className={`relative z-50 flex items-center justify-center w-12 h-12 bg-accent/40 text-primary-foreground  rounded-xl shadow-lg mr-6 shrink-0`}
+                  style={{ backdropFilter: "blur(16px)" }}
                 >
                   <Briefcase />
                 </div>

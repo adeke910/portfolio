@@ -51,7 +51,7 @@ export default function Header() {
             <button
               key={item.label}
               onClick={() => lenis?.scrollTo(`#${item.href}`)}
-              className="hover:text-primary"
+              className="hover:text-primary cursor-pointer"
             >
               {item.label}
             </button>

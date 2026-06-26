@@ -74,7 +74,7 @@ type StackItem = {
 };
 type StackModel = {
   languages: StackItem[];
-  technicalSkills: StackItem[];
+  Libraries: StackItem[];
   tools: StackItem[];
 };
 interface INavItem {
@@ -94,7 +94,7 @@ export const NAV_ITEMS: INavItem[] = [
   { label: "Home", href: "home" },
   { label: "Profile", href: "profile" },
   { label: "Catalogue", href: "catalogue" },
-  { label: "Skills", href: "skills" },
+  { label: "Stack", href: "stack" },
   { label: "Experience", href: "experience" },
   { label: "Contact me", href: "contact" },
 ];
@@ -108,7 +108,7 @@ export const PROFILE: IProfile = {
   email: "adekemibamiteko@gmail.com",
   welcomeText:
     "My professional career spans 3 years now, each of which has further deepened my fondness and respect for the craft. ",
-  profileText1: "I am Adekemi.",
+  profileText1: "Adekemi.",
   profileText2:
     "A Frontend Engineer with a passion for building thoughtful digital experiences.",
   profileText3:
@@ -125,7 +125,7 @@ export const PROFILE: IProfile = {
     {
       text: "CV",
       Icon: DownloadIcon,
-      url: "/portfolio/Adekemi_Bamiteko_Résumé.pdf",
+      url: "/portfolio/Adekemi_Bamiteko_Resume.pdf",
     },
   ],
   metrics: [
@@ -178,7 +178,7 @@ export const MY_STACK: StackModel = {
       Icon: PythonIcon,
     },
   ],
-  technicalSkills: [
+  Libraries: [
     {
       name: "React",
       color: "#61DAFB",
@@ -235,11 +235,7 @@ export const MY_STACK: StackModel = {
       color: "#408AFF",
       Icon: ZodIcon,
     },
-    {
-      name: "MongoDB",
-      color: "#47A248",
-      Icon: MongoDbIcon,
-    },
+
     {
       name: "Flask",
       color: "#3BABC3",
@@ -268,6 +264,12 @@ export const MY_STACK: StackModel = {
       name: "AWS",
       color: "#FF9900",
       Icon: CloudCog,
+    },
+
+    {
+      name: "MongoDB",
+      color: "#47A248",
+      Icon: MongoDbIcon,
     },
     {
       name: "Cursor AI",
@@ -326,7 +328,6 @@ export const MY_EXPERIENCE: {
   company: string;
   duration: string;
   location: string;
-  color: string;
   model: "Hybrid" | "Onsite" | "Remote";
   stack: StackItem[];
 }[] = [
@@ -336,7 +337,6 @@ export const MY_EXPERIENCE: {
     duration: "Sep 2023 - Present",
     location: "Lagos,Nigeria",
     model: "Hybrid",
-    color: "#00338d",
     stack: [
       {
         name: "JavaScript",
@@ -377,7 +377,6 @@ export const MY_EXPERIENCE: {
     duration: "Jan 2022 - Jan 2023",
     location: "Lagos,Nigeria",
     model: "Remote",
-    color: "#6366F1",
     stack: [
       {
         name: "Next.js",
