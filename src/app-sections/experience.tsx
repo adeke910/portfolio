@@ -91,10 +91,10 @@ export default function Experience() {
                         </p>
                       </div>
                       <div className="text-right mt-4 md:mt-0">
-                        <p className="text-sm text-muted-foreground font-barlow-condensed">
+                        <p className="text-sm dark:text-muted-foreground font-barlow-condensed">
                           {exp.duration}
                         </p>
-                        <p className="text-sm text-muted-foreground font-barlow-condensed">
+                        <p className="text-sm dark:text-muted-foreground font-barlow-condensed">
                           {exp.location}
                         </p>
                         <span className="inline-block px-3 py-1 bg-primary/80 dark:bg-primary/20 text-primary-foreground rounded-full text-xs font-medium mt-2">
@@ -105,7 +105,7 @@ export default function Experience() {
                     <div className="mt-3 ml-1 grid grid-cols-6 place-items-center gap-x-3 gap-y-4  md:grid-cols-10 lg:grid-cols-20">
                       {exp.stack.map((tech) => (
                         <div
-                          className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-white/5 dark:bg-primary/20"
+                          className="flex items-center justify-center rounded-md h-8 w-8 transition-transform duration-200 hover:scale-110 bg-accent/20 dark:bg-primary/20"
                           key={tech.name}
                         >
                           <Tooltip>

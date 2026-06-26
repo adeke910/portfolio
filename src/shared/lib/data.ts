@@ -60,6 +60,7 @@ type IProfile = {
     text: string;
     Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     url: string;
+    download?: boolean;
   }[];
   metrics: Metric[];
 };
@@ -126,6 +127,7 @@ export const PROFILE: IProfile = {
       text: "CV",
       Icon: DownloadIcon,
       url: "/portfolio/Adekemi_Bamiteko_Resume.pdf",
+      download: true,
     },
   ],
   metrics: [

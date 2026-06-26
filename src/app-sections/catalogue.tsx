@@ -79,7 +79,7 @@ const Catalogue = () => {
               <div className="flex flex-col gap-2">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 
-                <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
+                <p className="text-sm dark:text-muted-foreground mb-3 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -95,7 +95,7 @@ const Catalogue = () => {
                   ))}
 
                   {project.techStack.length > 3 && (
-                    <span className="px-2 py-1 text-xs rounded-full bg-secondary/10 text-muted-foreground">
+                    <span className="px-2 py-1 text-xs rounded-full bg-white/80 dark:bg-secondary/10 text-primary">
                       +{project.techStack.length - 3} more
                     </span>
                   )}

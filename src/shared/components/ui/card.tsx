@@ -11,8 +11,9 @@ function Card({
     <div
       data-slot="card"
       data-size={size}
+      style={{ backdropFilter: "blur(24px)" }}
       className={cn(
-        "group/card flex flex-col text-sm bg-card/90 text-card-foreground group relative break-inside-avoid overflow-hidden rounded-2xl border border-primary/20 hover:border-primary/40 p-6 shadow-2xl backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(rgb(181, 101, 118, 0.1)]",
+        "group/card flex flex-col bg-primary/5 text-sm  text-primary-foreground group relative break-inside-avoid overflow-hidden rounded-2xl border border-primary/20 hover:border-primary/40 p-6 shadow-2xl backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(rgb(181, 101, 118, 0.1)]",
         className,
       )}
       {...props}

@@ -11,6 +11,24 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 
+const stackCards = [
+  {
+    title: "Languages",
+    height: "h-80",
+    items: MY_STACK.languages,
+  },
+  {
+    title: "Tools",
+    height: "h-100",
+    items: MY_STACK.tools,
+  },
+  {
+    title: "Libraries & Frameworks",
+    height: "h-120",
+    items: MY_STACK.Libraries,
+  },
+];
+
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Stack = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -67,64 +85,29 @@ const Stack = () => {
           sectionSubTitle="Technologies I typically work with"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card className="flex flex-wrap h-80 w-full ">
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent pb-3">
-              <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
-                Languages
-              </span>
-            </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {stackCards.map(({ title, height, items }) => (
+            <Card key={title} className={`flex flex-wrap w-full ${height}`}>
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-            <div className="relative z-10 mx-auto mt-6 grid grid-cols-3 place-items-center gap-6 text-center lg:mx-0 lg:max-w-none">
-              {MY_STACK.languages.map((technology) => (
-                <Tooltip key={technology.name}>
-                  <TooltipTrigger>
-                    <technology.Icon className="size-12" />
-                  </TooltipTrigger>
-                  <TooltipContent>{technology.name}</TooltipContent>
-                </Tooltip>
-              ))}
-            </div>
-          </Card>
-          <Card className="flex flex-wrap h-100 w-full ">
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
-              <span className="text-xl font-bold tracking-tight text-white/80 transition-colors duration-300 group-hover:text-white">
-                Tools
-              </span>
-            </div>
+              <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
+                <span className="text-xl font-bold tracking-tight text-primary-foreground/80 transition-colors duration-300 group-hover:text-primary-foreground">
+                  {title}
+                </span>
+              </div>
 
-            <div className="relative z-10 mx-auto mt-6 grid grid-cols-3 place-items-center gap-6 text-center lg:mx-0 lg:max-w-none">
-              {MY_STACK.tools.map((technology) => (
-                <Tooltip key={technology.name}>
-                  <TooltipTrigger>
-                    <technology.Icon className="size-12" />
-                  </TooltipTrigger>
-                  <TooltipContent>{technology.name}</TooltipContent>
-                </Tooltip>
-              ))}
-            </div>
-          </Card>
-          <Card className="flex flex-wrap h-120 w-full ">
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div className="relative z-10 flex max-w-7xl items-center justify-between border-b border-accent/40 pb-3">
-              <span className="text-xl font-bold tracking-tight transition-colors duration-300 group-hover:text-white">
-                Libraries & Frameworks
-              </span>
-            </div>
-
-            <div className="relative z-10 mx-auto mt-6 grid grid-cols-3 place-items-center gap-6 text-center lg:mx-0 lg:max-w-none">
-              {MY_STACK.Libraries.map((technology) => (
-                <Tooltip key={technology.name}>
-                  <TooltipTrigger>
-                    <technology.Icon className="size-12" />
-                  </TooltipTrigger>
-                  <TooltipContent>{technology.name}</TooltipContent>
-                </Tooltip>
-              ))}
-            </div>
-          </Card>
+              <div className="relative z-10 mx-auto mt-6 grid grid-cols-3 place-items-center gap-6 text-center lg:mx-0 lg:max-w-none">
+                {items.map((technology) => (
+                  <Tooltip key={technology.name}>
+                    <TooltipTrigger>
+                      <technology.Icon className="size-12" />
+                    </TooltipTrigger>
+                    <TooltipContent>{technology.name}</TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

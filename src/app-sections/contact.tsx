@@ -19,9 +19,14 @@ const Footer = () => {
               <Button key={i} size="icon-lg" asChild>
                 <a
                   href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${link.text} Profile`}
+                  download={link.download}
+                  target={link.download ? undefined : "_blank"}
+                  rel={link.download ? undefined : "noopener noreferrer"}
+                  aria-label={
+                    link.download
+                      ? `Download ${link.text}`
+                      : `${link.text} Profile`
+                  }
                 >
                   <link.Icon />
                 </a>
